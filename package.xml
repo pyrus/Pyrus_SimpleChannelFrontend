@@ -2,18 +2,24 @@
 <package version="2.1" xmlns="http://pear.php.net/dtd/package-2.1" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.1     http://pear.php.net/dtd/package-2.1.xsd">
  <name>PEAR2_SimpleChannelFrontend</name>
  <channel>pear2.php.net</channel>
- <summary>Package PEAR2_SimpleChannelFrontend summary.
+ <summary>A simple PEAR channel frontend that does not require a database.
 </summary>
  <description>
-Package detailed description here (found in README)</description>
+This package provides a simple frontend to a PEAR channel.</description>
  <lead>
   <name>Your Name</name>
   <user>handle</user>
   <email>handle@php.net</email>
   <active>yes</active>
  </lead>
+ <lead>
+  <name>Brett Bieber</name>
+  <user>saltybeagle</user>
+  <email>saltybeagle@php.net</email>
+  <active>yes</active>
+ </lead>
  <date>2009-10-27</date>
- <time>17:45:35</time>
+ <time>20:58:36</time>
  <version>
   <release>0.1.0</release>
   <api>0.1.0</api>
@@ -30,8 +36,24 @@ Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
   <dir name="/">
    <dir name="src" baseinstalldir="pear2">
     <dir name="SimpleChannelFrontend">
+     <file role="php" name="Exception.php"/>
+     <file role="php" name="Internet.php"/>
      <file role="php" name="Main.php"/>
+     <file role="php" name="News.php"/>
+     <file role="php" name="Package.php"/>
+     <file role="php" name="PackageList.php"/>
+     <file role="php" name="TemplateMapper.php"/>
     </dir>
+   </dir>
+   <dir name="www" baseinstalldir="/">
+    <dir name="templates">
+     <file role="www" name="Main.tpl.php"/>
+     <file role="www" name="News.tpl.php"/>
+     <file role="www" name="Package.tpl.php"/>
+     <file role="www" name="PackageList.tpl.php"/>
+    </dir>
+    <file role="www" name="config.inc.php"/>
+    <file role="www" name="index.php"/>
    </dir>
   </dir>
  </contents>
@@ -43,6 +65,14 @@ Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
    <pearinstaller>
     <min>2.0.0a1</min>
    </pearinstaller>
+   <package>
+    <name>PEAR2_Pyrus</name>
+    <channel>pear2.php.net</channel>
+   </package>
+   <package>
+    <name>PEAR2_Templates_Savant</name>
+    <channel>pear2.php.net</channel>
+   </package>
   </required>
  </dependencies>
  <phprelease/>

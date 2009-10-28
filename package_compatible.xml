@@ -2,18 +2,18 @@
 <package version="2.1" xmlns="http://pear.php.net/dtd/package-2.1" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.1     http://pear.php.net/dtd/package-2.1.xsd">
  <name>PEAR2_SimpleChannelFrontend</name>
  <channel>pear2.php.net</channel>
- <summary>Package PEAR2_SimpleChannelFrontend summary.
+ <summary>A simple PEAR channel frontend that does not require a database.
 </summary>
  <description>
-Package detailed description here (found in README)</description>
+This package provides a simple frontend to a PEAR channel.</description>
  <lead>
-  <name>Your Name</name>
-  <user>handle</user>
-  <email>handle@php.net</email>
+  <name>Brett Bieber</name>
+  <user>saltybeagle</user>
+  <email>saltybeagle@php.net</email>
   <active>yes</active>
  </lead>
  <date>2009-10-27</date>
- <time>17:45:35</time>
+ <time>20:58:36</time>
  <version>
   <release>0.1.0</release>
   <api>0.1.0</api>
@@ -28,7 +28,19 @@ Package detailed description here (found in README)</description>
 Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
  <contents>
   <dir name="/">
+   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/PackageList.tpl.php"/>
+   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/Package.tpl.php"/>
+   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/News.tpl.php"/>
+   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/Main.tpl.php"/>
+   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/index.php"/>
+   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/config.inc.php"/>
+   <file role="php" name="php/pear2/SimpleChannelFrontend/TemplateMapper.php"/>
+   <file role="php" name="php/pear2/SimpleChannelFrontend/PackageList.php"/>
+   <file role="php" name="php/pear2/SimpleChannelFrontend/Package.php"/>
+   <file role="php" name="php/pear2/SimpleChannelFrontend/News.php"/>
    <file role="php" name="php/pear2/SimpleChannelFrontend/Main.php"/>
+   <file role="php" name="php/pear2/SimpleChannelFrontend/Internet.php"/>
+   <file role="php" name="php/pear2/SimpleChannelFrontend/Exception.php"/>
   </dir>
  </contents>
  <dependencies>
@@ -43,7 +55,19 @@ Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
  </dependencies>
  <phprelease>
   <filelist>
+   <install name="php/pear2/SimpleChannelFrontend/Exception.php" as="pear2/SimpleChannelFrontend/Exception.php"/>
+   <install name="php/pear2/SimpleChannelFrontend/Internet.php" as="pear2/SimpleChannelFrontend/Internet.php"/>
    <install name="php/pear2/SimpleChannelFrontend/Main.php" as="pear2/SimpleChannelFrontend/Main.php"/>
+   <install name="php/pear2/SimpleChannelFrontend/News.php" as="pear2/SimpleChannelFrontend/News.php"/>
+   <install name="php/pear2/SimpleChannelFrontend/Package.php" as="pear2/SimpleChannelFrontend/Package.php"/>
+   <install name="php/pear2/SimpleChannelFrontend/PackageList.php" as="pear2/SimpleChannelFrontend/PackageList.php"/>
+   <install name="php/pear2/SimpleChannelFrontend/TemplateMapper.php" as="pear2/SimpleChannelFrontend/TemplateMapper.php"/>
+   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/config.inc.php" as="pear2.php.net/config.inc.php"/>
+   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/index.php" as="pear2.php.net/index.php"/>
+   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/Main.tpl.php" as="pear2.php.net/templates/templates/Main.tpl.php"/>
+   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/News.tpl.php" as="pear2.php.net/templates/templates/News.tpl.php"/>
+   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/Package.tpl.php" as="pear2.php.net/templates/templates/Package.tpl.php"/>
+   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/PackageList.tpl.php" as="pear2.php.net/templates/templates/PackageList.tpl.php"/>
   </filelist>
  </phprelease>
 </package>
