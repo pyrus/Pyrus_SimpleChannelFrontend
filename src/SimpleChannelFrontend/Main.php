@@ -41,10 +41,30 @@ class Main
                                 'package'  => 'Package');
     
     function __construct(\pear2\Pyrus\IChannelFile $channel, $options = array())
-    {
-        self::$channel = $channel;
+    {        
+        static::setChannel($channel);
         $this->options = array_merge($this->options, $options);
         $this->run();
+    }
+    
+    public static function setChannel(\pear2\Pyrus\IChannelFile $channel)
+    {
+        \pear2\Pyrus\Main::$downloadClass = __NAMESPACE__ . '\\Internet';
+        \pear2\Pyrus\Config::current()->cache_dir = '/tmp';
+        
+        static::$channel = \pear2\Pyrus\Config::current()->channelregistry['pear2.php.net'];
+        $base_directory = dirname($channel->path);
+        
+        $rest = str_replace('http://' . $channel->name,
+                            '',
+                            $channel->protocols->rest['REST1.0']->baseurl);
+        
+        Internet::addDirectory($base_directory . '/get',
+                               'http://' . $channel->name . '/get/');
+        Internet::addDirectory($base_directory . $rest,
+                               $channel->protocols->rest['REST1.0']->baseurl);
+        
+        static::$channel->fromArray($channel->getArray());
     }
     
     function run()
