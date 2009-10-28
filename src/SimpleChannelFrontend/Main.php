@@ -36,15 +36,19 @@ class Main
     
     protected $options = array('view' => 'news');
     
-    protected $view_map = array('news'     => 'News',
-                                'packages' => 'PackageList',
-                                'package'  => 'Package');
+    protected $view_map = array('news'     => 'pear2\SimpleChannelFrontend\News',
+                                'packages' => 'pear2\SimpleChannelFrontend\PackageList',
+                                'package'  => 'pear2\SimpleChannelFrontend\Package');
     
     function __construct(\pear2\Pyrus\IChannelFile $channel, $options = array())
-    {        
+    {
         static::setChannel($channel);
         $this->options = array_merge($this->options, $options);
-        $this->run();
+        try {
+            $this->run();
+        } catch(Exception $e) {
+            $this->page_content = $e;
+        }
     }
     
     public static function setChannel(\pear2\Pyrus\IChannelFile $channel)
@@ -70,10 +74,24 @@ class Main
     function run()
     {
         if (!array_key_exists($this->options['view'], $this->view_map)) {
-            throw new Exception('No view, or incorrect view specified.');
+            throw new UnregisteredViewException('No view, or incorrect view specified.');
         }
-        $class = __NAMESPACE__.'\\'.$this->view_map[$this->options['view']];
+        $class = $this->view_map[$this->options['view']];
         $options = array_merge($this->options, array('frontend'=>$this));
         $this->page_content = new $class($options);
+    }
+    
+    /**
+     * Register a new view for the channel.
+     * 
+     * @param string $route The route used to identify this model and view
+     * @param string $class Class to instantiate when this view is requested.
+     * 
+     * @return Main
+     */
+    function registerView($route, $classname)
+    {
+        $this->view_map[$route] = $classname;
+        return $this;
     }
 }
