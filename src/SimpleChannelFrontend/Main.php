@@ -36,9 +36,9 @@ class Main
     
     protected $options = array('view' => 'news');
     
-    protected $view_map = array('news'     => 'pear2\SimpleChannelFrontend\News',
-                                'packages' => 'pear2\SimpleChannelFrontend\PackageList',
-                                'package'  => 'pear2\SimpleChannelFrontend\Package');
+    protected static $view_map = array('news'     => 'pear2\SimpleChannelFrontend\News',
+                                       'packages' => 'pear2\SimpleChannelFrontend\PackageList',
+                                       'package'  => 'pear2\SimpleChannelFrontend\Package');
     
     function __construct(\pear2\Pyrus\IChannelFile $channel, $options = array())
     {
@@ -73,10 +73,10 @@ class Main
     
     function run()
     {
-        if (!array_key_exists($this->options['view'], $this->view_map)) {
+        if (!array_key_exists($this->options['view'], static::$view_map)) {
             throw new UnregisteredViewException('No view, or incorrect view specified.');
         }
-        $class = $this->view_map[$this->options['view']];
+        $class = static::$view_map[$this->options['view']];
         $options = array_merge($this->options, array('frontend'=>$this));
         $this->page_content = new $class($options);
     }
@@ -91,7 +91,23 @@ class Main
      */
     function registerView($route, $classname)
     {
-        $this->view_map[$route] = $classname;
+        static::$view_map[$route] = $classname;
         return $this;
+    }
+    
+    public static function getURL($class = null)
+    {
+        $url = '';
+        if ($class) {
+            if (is_object($class)) {
+                $class = get_class($class);
+            }
+            $route = array_keys(static::$view_map, $class);
+            if (!count($route)) {
+                throw new UnregisteredViewException('The view for that object is not registered');
+            }
+            $url .= '?view=' . $route[0];
+        }
+        return $url;
     }
 }
