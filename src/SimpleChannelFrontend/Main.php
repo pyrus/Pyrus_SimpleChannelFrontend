@@ -32,6 +32,8 @@ class Main
      */
     static public $channel;
     
+    public $page_title = '{page_title}';
+    
     public $page_content;
     
     protected $options = array('view' => 'news');
@@ -145,6 +147,9 @@ class Main
      */
     public function postRender($html)
     {
+        $html = str_replace('{page_title}',
+                            $this->page_title,
+                            $html);
         return $html;
     }
 }
