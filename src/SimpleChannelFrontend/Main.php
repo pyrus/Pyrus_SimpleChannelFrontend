@@ -40,6 +40,12 @@ class Main
                                        'packages' => 'pear2\SimpleChannelFrontend\PackageList',
                                        'package'  => 'pear2\SimpleChannelFrontend\Package');
     
+    /**
+     * Constructor
+     * 
+     * @param \pear2\Pyrus\ChannelFile $channel The channel object
+     * @param array                    $options Associative array of options
+     */
     function __construct(\pear2\Pyrus\IChannelFile $channel, $options = array())
     {
         static::setChannel($channel);
@@ -51,6 +57,13 @@ class Main
         }
     }
     
+    /**
+     * Set the channel file for this frontend.
+     * 
+     * @param \pear2\Pyrus\IChanelFile $channel The channel object
+     * 
+     * @return void
+     */
     public static function setChannel(\pear2\Pyrus\IChannelFile $channel)
     {
         \pear2\Pyrus\Main::$downloadClass = __NAMESPACE__ . '\\Internet';
@@ -71,6 +84,11 @@ class Main
         static::$channel->fromArray($channel->getArray());
     }
     
+    /**
+     * Determine which view to instantiate and set as the page content
+     * 
+     * @return mixed
+     */
     function run()
     {
         if (!array_key_exists($this->options['view'], static::$view_map)) {
@@ -95,6 +113,13 @@ class Main
         return $this;
     }
     
+    /**
+     * Get the URL to a specific view
+     * 
+     * @param mixed $class What class to return a route for
+     * 
+     * @return string The url
+     */
     public static function getURL($class = null)
     {
         $url = '';
@@ -109,5 +134,17 @@ class Main
             $url .= '?view=' . $route[0];
         }
         return $url;
+    }
+    
+    /**
+     * Called after the page is rendered to perform any necessary replacements.
+     *
+     * @param string $html The rendered template.
+     *
+     * @return string Filtered html
+     */
+    public function postRender($html)
+    {
+        return $html;
     }
 }

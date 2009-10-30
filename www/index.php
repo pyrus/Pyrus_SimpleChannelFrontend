@@ -7,5 +7,6 @@ $savant = new pear2\Templates\Savant\Main();
 $savant->setClassToTemplateMapper(new pear2\SimpleChannelFrontend\TemplateMapper);
 $savant->setTemplatePath(array(__DIR__ . '/templates'));
 $savant->setEscape('htmlspecialchars');
+$savant->addFilters(array($frontend, 'postRender'));
 echo $savant->render($frontend);
 ?>
