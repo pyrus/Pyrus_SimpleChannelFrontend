@@ -3,7 +3,7 @@
  * Simulate the Internet
  */
 namespace pear2\SimpleChannelFrontend;
-class Internet extends \PEAR2_HTTP_Request
+class Internet extends \pear2\HTTP\Request
 {
 
     /**
@@ -11,7 +11,7 @@ class Internet extends \PEAR2_HTTP_Request
      */
     public function __construct($url = null) 
     {
-        $this->adapter = new \PEAR2_HTTP_Request_Adapter_Filesystem($this);
+        $this->adapter = new \pear2\HTTP\Request\Adapter\Filesystem($this);
         if ($url) {
             $this->url = $url;
         }
@@ -19,6 +19,6 @@ class Internet extends \PEAR2_HTTP_Request
 
     static function addDirectory($dir, $urlbase)
     {
-        \PEAR2_HTTP_Request_Adapter_Filesystem::addDirectory($dir, $urlbase);
+        \pear2\HTTP\Request\Adapter\Filesystem::addDirectory($dir, $urlbase);
     }
 }
