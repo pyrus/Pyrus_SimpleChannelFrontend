@@ -14,6 +14,7 @@
             <ul class="navigation">
                 <li><a href="<?php echo pear2\SimpleChannelFrontend\Main::getURL('pear2\SimpleChannelFrontend\News'); ?>">Home</a></li>
                 <li><a href="<?php echo pear2\SimpleChannelFrontend\Main::getURL('pear2\SimpleChannelFrontend\PackageList'); ?>">Packages</a></li>
+                <li><a href="<?php echo pear2\SimpleChannelFrontend\Main::getURL('pear2\SimpleChannelFrontend\Categories'); ?>">Categories</a></li>
             </ul>
         </div>
         <div class="content">
