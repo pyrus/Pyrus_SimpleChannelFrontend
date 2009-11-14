@@ -1,6 +1,6 @@
 <?php
 // Set the title for the main template
-$parent->parent->context->page_title = 'News | '.pear2\SimpleChannelFrontend\Main::$channel->name;
+$parent->context->page_title = 'News | '.pear2\SimpleChannelFrontend\Main::$channel->name;
 ?>
 <div id="news">
     <div class="grid_8 left">

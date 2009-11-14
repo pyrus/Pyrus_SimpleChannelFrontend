@@ -1,5 +1,5 @@
 <?php
-$parent->parent->context->page_title = 'Categories | '.pear2\SimpleChannelFrontend\Main::$channel->name; ?>
+$parent->context->page_title = 'Categories | '.pear2\SimpleChannelFrontend\Main::$channel->name; ?>
 
 <div class="grid_8 left">
 <div class="packages-header">
