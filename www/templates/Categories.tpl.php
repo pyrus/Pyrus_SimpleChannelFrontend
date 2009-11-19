@@ -11,8 +11,16 @@ if (count($context->categories)) : ?>
 <?php 
     foreach ($context->categories as $category) : ?>
     <li id="category-1" class="category category-clear">
-        <h3><a href=""><span class="category-title"><?php echo $category->name; ?></span> <span class="category-count"><?php echo count($category);?></span></a></h3>
-        <div><?php foreach ($category as $package) echo '<a href="./?view=package&amp;package='.$package->name.'">'.$package->name.'</a>'; ?></div>
+        <h3><a href=""><span class="category-title"><?php echo $category->name; ?></span> <span class="category-count"><?php echo count($category); ?></span></a></h3>
+        <div><?php
+        if (count($category)) {
+            echo '<ul>';
+            foreach ($category as $package) {
+                echo '<li><a href="./?view=package&amp;package='.$package->name.'">'.$package->name.'</a></li>';
+            }
+            echo '</ul>';
+        }
+        ?></div>
     </li>
     <?php
     endforeach; ?>
