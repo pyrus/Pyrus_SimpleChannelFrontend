@@ -127,6 +127,14 @@ class Main
      */
     public static function getURL($class = null)
     {
+        static $default_view;
+        
+        if (empty($default_view)) {
+            $main = new \ReflectionClass(__CLASS__);
+            $properties = $main->getDefaultProperties();
+            $default_view = $properties['options']['view'];
+        }
+        
         $url = static::$url;
         if ($class) {
             if (is_object($class)) {
@@ -136,7 +144,11 @@ class Main
             if (!count($route)) {
                 throw new UnregisteredViewException('The view for that object is not registered');
             }
-            $url .= '?view=' . $route[0];
+
+            if ($route[0] != $default_view) {
+                $url .= '?view=' . $route[0];
+            }
+
         }
         return $url;
     }
