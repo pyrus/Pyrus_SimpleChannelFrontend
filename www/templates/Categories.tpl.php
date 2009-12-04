@@ -16,7 +16,7 @@ if (count($context)) : ?>
         if (count($category)) {
             echo '<ul>';
             foreach ($category as $package) {
-                echo '<li><a href="./?view=package&amp;package='.$package->name.'">'.$package->name.'</a></li>';
+                echo '<li><a href="'.pear2\SimpleChannelFrontend\Main::getURL().$package->name.'">'.$package->name.'</a></li>';
             }
             echo '</ul>';
         }

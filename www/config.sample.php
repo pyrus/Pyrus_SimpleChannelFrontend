@@ -23,3 +23,5 @@ spl_autoload_register("pyrus_autoload");
  * An example of setting up the channel object.
  */
 $channel = new \pear2\Pyrus\ChannelFile(__DIR__ . '/channel.xml');
+
+pear2\SimpleChannelFrontend\Main::$url = 'http://channel.com/';

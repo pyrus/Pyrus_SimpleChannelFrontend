@@ -1,7 +1,15 @@
 <?php
 require_once 'config.inc.php';
 
-$frontend = new pear2\SimpleChannelFrontend\Main($channel, $_GET);
+$options = $_GET;
+
+if (isset($_SERVER['REDIRECT_URL'])) {
+    $options['view']    = 'package';
+    $options['package'] = substr($_SERVER['REDIRECT_URL'],
+                                 strrpos($_SERVER['REDIRECT_URL'], '/'));
+}
+
+$frontend = new pear2\SimpleChannelFrontend\Main($channel, $options);
 
 $savant = new pear2\Templates\Savant\Main();
 $savant->setClassToTemplateMapper(new pear2\SimpleChannelFrontend\TemplateMapper);

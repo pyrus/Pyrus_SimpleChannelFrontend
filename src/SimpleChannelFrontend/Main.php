@@ -43,6 +43,8 @@ class Main
                                        'package'    => 'pear2\SimpleChannelFrontend\Package',
                                        'categories' => 'pear2\SimpleChannelFrontend\Categories');
     
+    public static $url = '';
+    
     /**
      * Constructor
      * 
@@ -125,7 +127,7 @@ class Main
      */
     public static function getURL($class = null)
     {
-        $url = '';
+        $url = static::$url;
         if ($class) {
             if (is_object($class)) {
                 $class = get_class($class);

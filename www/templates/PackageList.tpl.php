@@ -7,7 +7,7 @@ $parent->context->page_title = 'Packages | '.pear2\SimpleChannelFrontend\Main::$
     <ul>
     <?php
     foreach ($context as $package) {
-        echo '<li><a href="./?view=package&amp;package='.$package->name.'">'.$package->name.'</a></li>';
+        echo '<li><a href="'.pear2\SimpleChannelFrontend\Main::getURL().$package->name.'">'.$package->name.'</a></li>';
     }
     ?>
     </ul>
