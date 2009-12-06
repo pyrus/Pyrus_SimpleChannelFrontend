@@ -41,7 +41,8 @@ class Main
     protected static $view_map = array('news'       => 'pear2\SimpleChannelFrontend\News',
                                        'packages'   => 'pear2\SimpleChannelFrontend\PackageList',
                                        'package'    => 'pear2\SimpleChannelFrontend\Package',
-                                       'categories' => 'pear2\SimpleChannelFrontend\Categories');
+                                       'categories' => 'pear2\SimpleChannelFrontend\Categories',
+                                       'support'    => 'pear2\SimpleChannelFrontend\Support');
     
     public static $url = '';
     
