@@ -11,7 +11,7 @@ if (count($context)) : ?>
 <?php 
     foreach ($context as $category) : ?>
     <li id="category-1" class="category category-clear">
-        <h3><a href=""><span class="category-title"><?php echo $category->name; ?></span> <span class="category-count"><?php echo count($category); ?></span></a></h3>
+        <h3><a href=""><span class="category-title"><?php echo $category->name; ?></span></a><span class="category-count"> (<?php echo count($category); ?>)</span></h3>
         <div><?php
         if (count($category)) {
             echo '<ul>';
