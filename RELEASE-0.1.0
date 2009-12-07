@@ -1,1 +1,6 @@
 Package PEAR2_SimpleChannelFrontend release notes for version 0.1.0.
+
+Basic features:
+* Customizable News and Support pages
+* Package pages with download links
+* Category listing

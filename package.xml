@@ -7,19 +7,13 @@
  <description>
 This package provides a simple frontend to a PEAR channel.</description>
  <lead>
-  <name>Your Name</name>
-  <user>handle</user>
-  <email>handle@php.net</email>
-  <active>yes</active>
- </lead>
- <lead>
   <name>Brett Bieber</name>
   <user>saltybeagle</user>
   <email>saltybeagle@php.net</email>
   <active>yes</active>
  </lead>
- <date>2009-10-27</date>
- <time>20:58:36</time>
+ <date>2009-12-06</date>
+ <time>22:48:07</time>
  <version>
   <release>0.1.0</release>
   <api>0.1.0</api>
@@ -31,29 +25,52 @@ This package provides a simple frontend to a PEAR channel.</description>
  <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
  <notes>Package PEAR2_SimpleChannelFrontend release notes for version 0.1.0.
 
+Basic features:
+* Customizable News and Support pages
+* Package pages with download links
+* Category listing
+
+
 Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
  <contents>
   <dir name="/">
    <dir name="src" baseinstalldir="pear2">
     <dir name="SimpleChannelFrontend">
+     <file role="php" name="Categories.php"/>
      <file role="php" name="Exception.php"/>
      <file role="php" name="Internet.php"/>
      <file role="php" name="Main.php"/>
      <file role="php" name="News.php"/>
      <file role="php" name="Package.php"/>
      <file role="php" name="PackageList.php"/>
+     <file role="php" name="Support.php"/>
      <file role="php" name="TemplateMapper.php"/>
+     <file role="php" name="UnregisteredViewException.php"/>
     </dir>
    </dir>
    <dir name="www" baseinstalldir="/">
+    <dir name="css">
+     <dir name="images">
+      <file role="www" name="header.png"/>
+     </dir>
+     <file role="www" name="960.css"/>
+     <file role="www" name="all.css"/>
+     <file role="www" name="reset.css"/>
+     <file role="www" name="scf.css"/>
+     <file role="www" name="text.css"/>
+    </dir>
     <dir name="templates">
+     <file role="www" name="Categories.tpl.php"/>
      <file role="www" name="Main.tpl.php"/>
      <file role="www" name="News.tpl.php"/>
      <file role="www" name="Package.tpl.php"/>
      <file role="www" name="PackageList.tpl.php"/>
+     <file role="www" name="Support.tpl.php"/>
+     <file role="www" name="UnregisteredViewException.tpl.php"/>
     </dir>
-    <file role="www" name="config.inc.php"/>
+    <file role="www" name="config.sample.php"/>
     <file role="www" name="index.php"/>
+    <file role="www" name="sample.htaccess"/>
    </dir>
   </dir>
  </contents>
