@@ -11,11 +11,7 @@ $parent->context->page_title = $context->name.' | '.pear2\SimpleChannelFrontend\
             echo nl2br(trim($context->description));
             ?>
         </p>
-        <h3>Installation</h3>
-        <ol class="instructions">
-            <li><code>$>php pyrus.phar channel-discover <?php echo $context->channel; ?></code></li>
-            <li><code>$>php pyrus.phar install <?php echo $context->channel . '/' . $context->name . '-' . $context->version['release']; ?></code></li>
-        </ol>
+        <?php echo $savant->render($context->channel . '/' . $context->name . '-' . $context->version['release'], 'InstallInstructions.tpl.php'); ?>
     </div>
     <div class="grid_4 right releases">
         <h3>Releases</h3>
