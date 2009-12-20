@@ -21,7 +21,7 @@
         <div class="content">
             <?php echo $savant->render($context->page_content); ?>
         </div>
-        <div class="footer">This is a PEAR channel running PEAR2_SimpleChannelFrontend</div>
+        <div class="footer">This is a PEAR channel running <a href="http://pear2.php.net/PEAR2_SimpleChannelFrontend">PEAR2_SimpleChannelFrontend</a></div>
     </div>
   </body>
 </html>

@@ -5,7 +5,24 @@
  <summary>A simple PEAR channel frontend that does not require a database.
 </summary>
  <description>
-This package provides a simple frontend to a PEAR channel.</description>
+This package provides a simple frontend to a PEAR channel by directly using
+the PEAR channel files.
+
+To use, place the PEAR2_SimpleChannelFrontend-0.1.0.phar in the root of your
+channel server as index.php, and add an .htaccess file with the following:
+
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
+&lt;/IfModule&gt;
+
+For a more customized interface, you can create a config.inc.php file, or
+install the package and use the files in the www_dir as a starting point for
+a fully customized PEAR channel.
+</description>
  <lead>
   <name>Brett Bieber</name>
   <user>saltybeagle</user>
@@ -13,7 +30,7 @@ This package provides a simple frontend to a PEAR channel.</description>
   <active>yes</active>
  </lead>
  <date>2009-12-20</date>
- <time>09:17:00</time>
+ <time>12:21:21</time>
  <version>
   <release>0.1.0</release>
   <api>0.1.0</api>
