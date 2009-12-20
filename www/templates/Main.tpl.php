@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="search" title="search packages" type="application/opensearchdescription+xml" href="?view=searchdefinition">
     <link rel="alternate" title="My Channel Latest Releases" type="application/atom+xml" href="?view=latest" />
-    <link rel="stylesheet" href="css/all.css" />
+    <link rel="stylesheet" href="<?php echo pear2\SimpleChannelFrontend\Main::getURL(); ?>css/all.css" />
     <title><?php echo $context->page_title; ?></title>
   </head>
   <body>

@@ -12,8 +12,8 @@ This package provides a simple frontend to a PEAR channel.</description>
   <email>saltybeagle@php.net</email>
   <active>yes</active>
  </lead>
- <date>2009-12-06</date>
- <time>22:48:07</time>
+ <date>2009-12-20</date>
+ <time>09:17:00</time>
  <version>
   <release>0.1.0</release>
   <api>0.1.0</api>
@@ -36,10 +36,12 @@ Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
   <dir name="/">
    <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/UnregisteredViewException.tpl.php"/>
    <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/Support.tpl.php"/>
+   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/PackageRelease.tpl.php"/>
    <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/PackageList.tpl.php"/>
    <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/Package.tpl.php"/>
    <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/News.tpl.php"/>
    <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/Main.tpl.php"/>
+   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/InstallInstructions.tpl.php"/>
    <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/Categories.tpl.php"/>
    <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/sample.htaccess"/>
    <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/index.php"/>
@@ -53,6 +55,7 @@ Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
    <file role="php" name="php/pear2/SimpleChannelFrontend/UnregisteredViewException.php"/>
    <file role="php" name="php/pear2/SimpleChannelFrontend/TemplateMapper.php"/>
    <file role="php" name="php/pear2/SimpleChannelFrontend/Support.php"/>
+   <file role="php" name="php/pear2/SimpleChannelFrontend/PackageRelease.php"/>
    <file role="php" name="php/pear2/SimpleChannelFrontend/PackageList.php"/>
    <file role="php" name="php/pear2/SimpleChannelFrontend/Package.php"/>
    <file role="php" name="php/pear2/SimpleChannelFrontend/News.php"/>
@@ -81,6 +84,7 @@ Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
    <install name="php/pear2/SimpleChannelFrontend/News.php" as="pear2/SimpleChannelFrontend/News.php"/>
    <install name="php/pear2/SimpleChannelFrontend/Package.php" as="pear2/SimpleChannelFrontend/Package.php"/>
    <install name="php/pear2/SimpleChannelFrontend/PackageList.php" as="pear2/SimpleChannelFrontend/PackageList.php"/>
+   <install name="php/pear2/SimpleChannelFrontend/PackageRelease.php" as="pear2/SimpleChannelFrontend/PackageRelease.php"/>
    <install name="php/pear2/SimpleChannelFrontend/Support.php" as="pear2/SimpleChannelFrontend/Support.php"/>
    <install name="php/pear2/SimpleChannelFrontend/TemplateMapper.php" as="pear2/SimpleChannelFrontend/TemplateMapper.php"/>
    <install name="php/pear2/SimpleChannelFrontend/UnregisteredViewException.php" as="pear2/SimpleChannelFrontend/UnregisteredViewException.php"/>
@@ -94,10 +98,12 @@ Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
    <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/index.php" as="pear2.php.net/index.php"/>
    <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/sample.htaccess" as="pear2.php.net/sample.htaccess"/>
    <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/Categories.tpl.php" as="pear2.php.net/templates/templates/Categories.tpl.php"/>
+   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/InstallInstructions.tpl.php" as="pear2.php.net/templates/templates/InstallInstructions.tpl.php"/>
    <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/Main.tpl.php" as="pear2.php.net/templates/templates/Main.tpl.php"/>
    <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/News.tpl.php" as="pear2.php.net/templates/templates/News.tpl.php"/>
    <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/Package.tpl.php" as="pear2.php.net/templates/templates/Package.tpl.php"/>
    <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/PackageList.tpl.php" as="pear2.php.net/templates/templates/PackageList.tpl.php"/>
+   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/PackageRelease.tpl.php" as="pear2.php.net/templates/templates/PackageRelease.tpl.php"/>
    <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/Support.tpl.php" as="pear2.php.net/templates/templates/Support.tpl.php"/>
    <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/templates/UnregisteredViewException.tpl.php" as="pear2.php.net/templates/templates/UnregisteredViewException.tpl.php"/>
   </filelist>
