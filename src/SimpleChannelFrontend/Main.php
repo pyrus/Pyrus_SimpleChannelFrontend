@@ -53,7 +53,7 @@ class Main
      * @param \pear2\Pyrus\ChannelFile $channel The channel object
      * @param array                    $options Associative array of options
      */
-    function __construct(\pear2\Pyrus\IChannelFile $channel, $options = array())
+    function __construct(\pear2\Pyrus\ChannelFileInterface $channel, $options = array())
     {
         static::setChannel($channel);
         $this->options = array_merge($this->options, $options);
@@ -71,7 +71,7 @@ class Main
      * 
      * @return void
      */
-    public static function setChannel(\pear2\Pyrus\IChannelFile $channel)
+    public static function setChannel(\pear2\Pyrus\ChannelFileInterface $channel)
     {
         \pear2\Pyrus\Main::$downloadClass = __NAMESPACE__ . '\\Internet';
         \pear2\Pyrus\Config::current()->cache_dir = '/tmp';
