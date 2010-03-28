@@ -6,8 +6,6 @@ class Search extends \FilterIterator
 {
     public $query;
 
-    protected $frontend;
-
     function __construct($options = array())
     {
         
