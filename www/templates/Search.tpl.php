@@ -1,6 +1,6 @@
 <?php
 // Set the title for the main template
-$parent->context->page_title = 'Packages | '.pear2\SimpleChannelFrontend\Main::$channel->name;
+$parent->context->page_title = 'Search | '.pear2\SimpleChannelFrontend\Main::$channel->name;
 ?>
 <div class="packagelist grid_8">
     <h1>Package Search</h1>
