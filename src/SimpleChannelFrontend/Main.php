@@ -43,7 +43,8 @@ class Main
                                        'package'    => 'pear2\SimpleChannelFrontend\Package',
                                        'release'    => 'pear2\SimpleChannelFrontend\PackageRelease',
                                        'categories' => 'pear2\SimpleChannelFrontend\Categories',
-                                       'support'    => 'pear2\SimpleChannelFrontend\Support');
+                                       'support'    => 'pear2\SimpleChannelFrontend\Support',
+                                       'search'     => 'pear2\SimpleChannelFrontend\Search');
     
     public static $url = '';
     
