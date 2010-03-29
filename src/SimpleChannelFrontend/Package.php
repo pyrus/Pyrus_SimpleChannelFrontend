@@ -2,11 +2,17 @@
 namespace pear2\SimpleChannelFrontend;
 class Package implements \IteratorAggregate
 {
+    /**
+     * The actual package object.
+     * @var \pear2\Pyrus\Package\Remote
+     */
     public $_package;
     
     function __construct($options = array())
     {
         $this->_package = $options['frontend']::$channel->remotepackage[$options['package']];
+        $this->rewind();
+        $this->_package->setRawVersion(null, array('release'=>$this->key()));
     }
     
     function __get($var)
