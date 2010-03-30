@@ -6,10 +6,8 @@ $parent->context->page_title = 'Latest Releases | '.pear2\SimpleChannelFrontend\
     <h1>Latest Releases</h1>
     <ul>
     <?php
-    foreach ($context as $date=>$info) {
-        $package = $info['package'];
-        $version = $info['version'];
-        echo '<li>'.$date.' <a href="'.pear2\SimpleChannelFrontend\Main::getURL().$package->name.'-'.$version.'">'.$package->name.'-'.$version.'</a></li>';
+    foreach ($context as $date=>$package) {
+        echo '<li>'.$date.' <a href="'.pear2\SimpleChannelFrontend\Main::getURL().$package->name.'-'.$package->version['release'].'">'.$package->name.'-'.$package->version['release'].'</a></li>';
     }?>
     </ul>
 </div>
