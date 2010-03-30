@@ -42,6 +42,7 @@ class Main
                                        'packages'   => 'pear2\SimpleChannelFrontend\PackageList',
                                        'package'    => 'pear2\SimpleChannelFrontend\Package',
                                        'release'    => 'pear2\SimpleChannelFrontend\PackageRelease',
+                                       'latest'     => 'pear2\SimpleChannelFrontend\LatestReleases',
                                        'categories' => 'pear2\SimpleChannelFrontend\Categories',
                                        'support'    => 'pear2\SimpleChannelFrontend\Support',
                                        'search'     => 'pear2\SimpleChannelFrontend\Search');
