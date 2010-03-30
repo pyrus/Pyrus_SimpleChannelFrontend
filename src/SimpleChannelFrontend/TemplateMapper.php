@@ -10,10 +10,10 @@ class TemplateMapper extends \pear2\Templates\Savant\ClassToTemplateMapper
             // running from svn, or extracted from archive
             if (strpos(__FILE__, 'trunk/src/SimpleChannelFrontend')) {
                 // running from svn
-                self::$templatePath = __DIR__ . '/../../www/templates/';
+                self::$templatePath = __DIR__ . '/../../www/templates/html';
             } else {
                 // running from extracted archive
-                self::$templatePath = __DIR__ . '/../../../www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/';
+                self::$templatePath = __DIR__ . '/../../../www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html';
             }
         }
         static::$classname_replacement = 'pear2\\SimpleChannelFrontend\\';

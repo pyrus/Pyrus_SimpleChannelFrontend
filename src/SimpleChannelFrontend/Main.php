@@ -36,7 +36,8 @@ class Main
     
     public $page_content;
     
-    protected $options = array('view' => 'news');
+    public $options = array('view'   => 'news',
+                               'format' => 'html');
     
     protected static $view_map = array('news'       => 'pear2\SimpleChannelFrontend\News',
                                        'packages'   => 'pear2\SimpleChannelFrontend\PackageList',
@@ -59,13 +60,27 @@ class Main
     {
         static::setChannel($channel);
         $this->options = array_merge($this->options, $options);
+        $this->preRun();
         try {
             $this->run();
         } catch(Exception $e) {
             $this->page_content = $e;
         }
     }
-    
+
+    function preRun()
+    {
+        switch ($this->options['format']) {
+        case 'rss':
+            header('Content-type:text/xml');
+            break;
+        case 'html':
+        default:
+            header('Content-Type:text/html; charset=UTF-8');
+            break;
+        }
+    }
+
     /**
      * Set the channel file for this frontend.
      * 

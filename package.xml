@@ -29,8 +29,8 @@ a fully customized PEAR channel.
   <email>saltybeagle@php.net</email>
   <active>yes</active>
  </lead>
- <date>2009-12-20</date>
- <time>12:21:21</time>
+ <date>2010-03-29</date>
+ <time>16:13:46</time>
  <version>
   <release>0.1.0</release>
   <api>0.1.0</api>
@@ -61,6 +61,7 @@ Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
      <file role="php" name="Package.php"/>
      <file role="php" name="PackageList.php"/>
      <file role="php" name="PackageRelease.php"/>
+     <file role="php" name="Search.php"/>
      <file role="php" name="Support.php"/>
      <file role="php" name="TemplateMapper.php"/>
      <file role="php" name="UnregisteredViewException.php"/>
@@ -85,6 +86,7 @@ Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
      <file role="www" name="Package.tpl.php"/>
      <file role="www" name="PackageList.tpl.php"/>
      <file role="www" name="PackageRelease.tpl.php"/>
+     <file role="www" name="Search.tpl.php"/>
      <file role="www" name="Support.tpl.php"/>
      <file role="www" name="UnregisteredViewException.tpl.php"/>
     </dir>

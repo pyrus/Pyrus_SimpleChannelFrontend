@@ -27,7 +27,15 @@ $frontend = new pear2\SimpleChannelFrontend\Main($channel, $options);
 
 $savant = new pear2\Templates\Savant\Main();
 $savant->setClassToTemplateMapper(new pear2\SimpleChannelFrontend\TemplateMapper);
-$savant->setTemplatePath(array(__DIR__ . '/templates'));
+$savant->setTemplatePath(array(__DIR__ . '/templates/html'));
+
+switch($frontend->options['format']) {
+case 'rss':
+    $savant->addTemplatePath(__DIR__.'/templates/'.$frontend->options['format']);
+    break;
+}
+
+
 $savant->setEscape('htmlspecialchars');
 $savant->addFilters(array($frontend, 'postRender'));
 echo $savant->render($frontend);
