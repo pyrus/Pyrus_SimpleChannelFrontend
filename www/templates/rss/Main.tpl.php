@@ -12,6 +12,7 @@
         <dc:language>en-us</dc:language>
         <title><?php echo pear2\SimpleChannelFrontend\Main::$channel->summary; ?>: Latest releases</title>
         <description>The latest releases for <?php echo pear2\SimpleChannelFrontend\Main::$channel->summary; ?>.</description>
+        <!-- {items} -->
     </channel>
     <?php echo $savant->render($context->page_content); ?>
 </rdf:RDF>
