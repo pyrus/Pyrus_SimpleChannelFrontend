@@ -1,6 +1,6 @@
 <?php
-namespace pear2\SimpleChannelFrontend;
-class PackageList extends \pear2\Pyrus\Channel\RemotePackages
+namespace PEAR2\SimpleChannelFrontend;
+class PackageList extends \PEAR2\Pyrus\Channel\RemotePackages
 {
     public $directory;
     
@@ -9,7 +9,7 @@ class PackageList extends \pear2\Pyrus\Channel\RemotePackages
     /**
      * Remote packages object
      * 
-     * @var \pear2\Pyrus\Channel\RemotePackages
+     * @var \PEAR2\Pyrus\Channel\RemotePackages
      */
     protected $_remotepackages;
     

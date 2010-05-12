@@ -1,6 +1,6 @@
 <?php
-namespace pear2\SimpleChannelFrontend;
-class TemplateMapper extends \pear2\Templates\Savant\ClassToTemplateMapper
+namespace PEAR2\SimpleChannelFrontend;
+class TemplateMapper extends \PEAR2\Templates\Savant\ClassToTemplateMapper
 {
     static protected $templatePath = '@www_dir@';
 
@@ -16,7 +16,7 @@ class TemplateMapper extends \pear2\Templates\Savant\ClassToTemplateMapper
                 self::$templatePath = __DIR__ . '/../../../www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html';
             }
         }
-        static::$classname_replacement = 'pear2\\SimpleChannelFrontend\\';
+        static::$classname_replacement = 'PEAR2\\SimpleChannelFrontend\\';
     }
 }
 ?>

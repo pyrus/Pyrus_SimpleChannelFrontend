@@ -1,6 +1,6 @@
 <?php
 // Set the title for the main template
-$parent->context->page_title = 'Search | '.pear2\SimpleChannelFrontend\Main::$channel->name;
+$parent->context->page_title = 'Search | '.PEAR2\SimpleChannelFrontend\Main::$channel->name;
 ?>
 <div class="packagelist grid_8">
     <h1>Package Search</h1>
@@ -13,7 +13,7 @@ $parent->context->page_title = 'Search | '.pear2\SimpleChannelFrontend\Main::$ch
     <ul>
     <?php
     foreach ($context as $package) {
-        echo '<li><a href="'.pear2\SimpleChannelFrontend\Main::getURL().$package->name.'">'.$package->name.'</a></li>';
+        echo '<li><a href="'.PEAR2\SimpleChannelFrontend\Main::getURL().$package->name.'">'.$package->name.'</a></li>';
     }
     ?>
     </ul>

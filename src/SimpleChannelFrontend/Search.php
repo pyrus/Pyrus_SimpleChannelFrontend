@@ -1,6 +1,6 @@
 <?php 
-namespace pear2\SimpleChannelFrontend;
-use pear2\Pyrus\Channel;
+namespace PEAR2\SimpleChannelFrontend;
+use PEAR2\Pyrus\Channel;
 
 class Search extends \FilterIterator
 {
@@ -13,7 +13,7 @@ class Search extends \FilterIterator
             $this->query = $options['q'];
         }
 
-        parent::__construct(new \pear2\Pyrus\Channel\RemotePackages(Main::$channel));
+        parent::__construct(new \PEAR2\Pyrus\Channel\RemotePackages(Main::$channel));
     }
 
     function accept()

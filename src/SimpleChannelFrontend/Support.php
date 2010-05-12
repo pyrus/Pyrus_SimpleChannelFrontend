@@ -1,5 +1,5 @@
 <?php
-namespace pear2\SimpleChannelFrontend;
+namespace PEAR2\SimpleChannelFrontend;
 class Support
 {
     

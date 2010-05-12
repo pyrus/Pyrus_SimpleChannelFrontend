@@ -1,10 +1,10 @@
 <?php
-namespace pear2\SimpleChannelFrontend;
+namespace PEAR2\SimpleChannelFrontend;
 class Package implements \IteratorAggregate
 {
     /**
      * The actual package object.
-     * @var \pear2\Pyrus\Package\Remote
+     * @var \PEAR2\Pyrus\Package\Remote
      */
     public $_package;
     

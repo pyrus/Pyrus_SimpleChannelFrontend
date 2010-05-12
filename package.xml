@@ -29,8 +29,8 @@ a fully customized PEAR channel.
   <email>saltybeagle@php.net</email>
   <active>yes</active>
  </lead>
- <date>2010-03-29</date>
- <time>16:13:46</time>
+ <date>2010-03-30</date>
+ <time>21:24:00</time>
  <version>
   <release>0.1.0</release>
   <api>0.1.0</api>
@@ -51,11 +51,12 @@ Basic features:
 Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
  <contents>
   <dir name="/">
-   <dir name="src" baseinstalldir="pear2">
+   <dir name="src" baseinstalldir="PEAR2">
     <dir name="SimpleChannelFrontend">
      <file role="php" name="Categories.php"/>
      <file role="php" name="Exception.php"/>
      <file role="php" name="Internet.php"/>
+     <file role="php" name="LatestReleases.php"/>
      <file role="php" name="Main.php"/>
      <file role="php" name="News.php"/>
      <file role="php" name="Package.php"/>
@@ -79,16 +80,23 @@ Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
      <file role="www" name="text.css"/>
     </dir>
     <dir name="templates">
-     <file role="www" name="Categories.tpl.php"/>
-     <file role="www" name="InstallInstructions.tpl.php"/>
-     <file role="www" name="Main.tpl.php"/>
-     <file role="www" name="News.tpl.php"/>
-     <file role="www" name="Package.tpl.php"/>
-     <file role="www" name="PackageList.tpl.php"/>
-     <file role="www" name="PackageRelease.tpl.php"/>
-     <file role="www" name="Search.tpl.php"/>
-     <file role="www" name="Support.tpl.php"/>
-     <file role="www" name="UnregisteredViewException.tpl.php"/>
+     <dir name="html">
+      <file role="www" name="Categories.tpl.php"/>
+      <file role="www" name="InstallInstructions.tpl.php"/>
+      <file role="www" name="LatestReleases.tpl.php"/>
+      <file role="www" name="Main.tpl.php"/>
+      <file role="www" name="News.tpl.php"/>
+      <file role="www" name="Package.tpl.php"/>
+      <file role="www" name="PackageList.tpl.php"/>
+      <file role="www" name="PackageRelease.tpl.php"/>
+      <file role="www" name="Search.tpl.php"/>
+      <file role="www" name="Support.tpl.php"/>
+      <file role="www" name="UnregisteredViewException.tpl.php"/>
+     </dir>
+     <dir name="rss">
+      <file role="www" name="LatestReleases.tpl.php"/>
+      <file role="www" name="Main.tpl.php"/>
+     </dir>
     </dir>
     <file role="www" name="config.sample.php"/>
     <file role="www" name="index.php"/>

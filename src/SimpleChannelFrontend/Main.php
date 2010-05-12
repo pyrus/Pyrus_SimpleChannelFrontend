@@ -1,6 +1,6 @@
 <?php
 /**
- * pear2\SimpleChannelFrontend\Main
+ * PEAR2\SimpleChannelFrontend\Main
  *
  * PHP version 5
  *
@@ -23,7 +23,7 @@
  * @license   http://www.opensource.org/licenses/bsd-license.php New BSD License
  * @link      http://svn.php.net/repository/pear2/PEAR2_SimpleChannelFrontend
  */
-namespace pear2\SimpleChannelFrontend;
+namespace PEAR2\SimpleChannelFrontend;
 class Main
 {
     /**
@@ -39,24 +39,24 @@ class Main
     public $options = array('view'   => 'news',
                                'format' => 'html');
     
-    protected static $view_map = array('news'       => 'pear2\SimpleChannelFrontend\News',
-                                       'packages'   => 'pear2\SimpleChannelFrontend\PackageList',
-                                       'package'    => 'pear2\SimpleChannelFrontend\Package',
-                                       'release'    => 'pear2\SimpleChannelFrontend\PackageRelease',
-                                       'latest'     => 'pear2\SimpleChannelFrontend\LatestReleases',
-                                       'categories' => 'pear2\SimpleChannelFrontend\Categories',
-                                       'support'    => 'pear2\SimpleChannelFrontend\Support',
-                                       'search'     => 'pear2\SimpleChannelFrontend\Search');
+    protected static $view_map = array('news'       => 'PEAR2\SimpleChannelFrontend\News',
+                                       'packages'   => 'PEAR2\SimpleChannelFrontend\PackageList',
+                                       'package'    => 'PEAR2\SimpleChannelFrontend\Package',
+                                       'release'    => 'PEAR2\SimpleChannelFrontend\PackageRelease',
+                                       'latest'     => 'PEAR2\SimpleChannelFrontend\LatestReleases',
+                                       'categories' => 'PEAR2\SimpleChannelFrontend\Categories',
+                                       'support'    => 'PEAR2\SimpleChannelFrontend\Support',
+                                       'search'     => 'PEAR2\SimpleChannelFrontend\Search');
     
     public static $url = '';
     
     /**
      * Constructor
      * 
-     * @param \pear2\Pyrus\ChannelFile $channel The channel object
+     * @param \PEAR2\Pyrus\ChannelFile $channel The channel object
      * @param array                    $options Associative array of options
      */
-    function __construct(\pear2\Pyrus\ChannelFileInterface $channel, $options = array())
+    function __construct(\PEAR2\Pyrus\ChannelFileInterface $channel, $options = array())
     {
         static::setChannel($channel);
         $this->options = array_merge($this->options, $options);
@@ -84,16 +84,16 @@ class Main
     /**
      * Set the channel file for this frontend.
      * 
-     * @param \pear2\Pyrus\IChanelFile $channel The channel object
+     * @param \PEAR2\Pyrus\IChanelFile $channel The channel object
      * 
      * @return void
      */
-    public static function setChannel(\pear2\Pyrus\ChannelFileInterface $channel)
+    public static function setChannel(\PEAR2\Pyrus\ChannelFileInterface $channel)
     {
-        \pear2\Pyrus\Main::$downloadClass = __NAMESPACE__ . '\\Internet';
-        \pear2\Pyrus\Config::current()->cache_dir = '/tmp';
+        \PEAR2\Pyrus\Main::$downloadClass = __NAMESPACE__ . '\\Internet';
+        \PEAR2\Pyrus\Config::current()->cache_dir = '/tmp';
         
-        static::$channel = \pear2\Pyrus\Config::current()->channelregistry['pear2.php.net'];
+        static::$channel = \PEAR2\Pyrus\Config::current()->channelregistry['pear2.php.net'];
         $base_directory = dirname($channel->path);
         
         $rest = str_replace('http://' . $channel->name,
