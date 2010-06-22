@@ -1,6 +1,6 @@
 <?php
 namespace PEAR2\SimpleChannelFrontend;
-class Category implements \IteratorAggregate
+class Category implements \IteratorAggregate, \ArrayAccess, \Countable
 {
     /**
      * @var \PEAR2\Pyrus\Channel\RemoteCategory
@@ -26,5 +26,30 @@ class Category implements \IteratorAggregate
     public function getIterator()
     {
         return $this->_category;
+    }
+
+    public function offsetExists($key)
+    {
+        return $this->_category->offsetExists($key);
+    }
+
+    public function offsetGet($key)
+    {
+        return $this->_category->offsetGet($key);
+    }
+
+    public function offsetSet($key, $value)
+    {
+        return $this->_category->offsetSet($key, $value);
+    }
+
+    public function offsetUnset($key)
+    {
+        return $this->_category->offsetUnset($key);
+    }
+
+    public function count()
+    {
+        return $this->_category->count();
     }
 }
