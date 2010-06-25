@@ -30,7 +30,7 @@ class Main
      * The channel object
      * @var Channel
      */
-    static public $channel;
+    public static $channel;
     
     public $page_title = '{page_title}';
     
@@ -48,12 +48,19 @@ class Main
                                        'category'   => 'PEAR2\SimpleChannelFrontend\Category',
                                        'support'    => 'PEAR2\SimpleChannelFrontend\Support',
                                        'search'     => 'PEAR2\SimpleChannelFrontend\Search');
-    
+
     public static $url = '';
-    
+
+    /**
+     * Application title
+     *
+     * @var string
+     */
+    public static $title = 'Simple Channel Frontend';
+
     /**
      * Constructor
-     * 
+     *
      * @param \PEAR2\Pyrus\ChannelFile $channel The channel object
      * @param array                    $options Associative array of options
      */
