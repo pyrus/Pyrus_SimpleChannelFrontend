@@ -1,24 +1,41 @@
-<?php 
+<?php
+
 namespace PEAR2\SimpleChannelFrontend;
 use PEAR2\Pyrus\Channel;
 
-class Search extends \FilterIterator
+class Search extends \FilterIterator implements \Countable
 {
     public $query;
 
-    function __construct($options = array())
+    public function __construct($options = array())
     {
-        
         if (isset($options['q'])) {
             $this->query = $options['q'];
         }
 
-        parent::__construct(new \PEAR2\Pyrus\Channel\RemotePackages(Main::$channel));
+        parent::__construct(
+            new \PEAR2\Pyrus\Channel\RemotePackages(Main::$channel)
+        );
     }
 
-    function accept()
+    public function accept()
     {
-        return (bool)stristr($this->current()->name, $this->query);
+        if ($this->query == '') {
+            $accept = false;
+        } else {
+            $accept = (bool)stristr($this->current()->name, $this->query);
+        }
+
+        return $accept;
+    }
+
+    public function count()
+    {
+        $count = 0;
+        foreach ($this as $package) {
+            $count++;
+        }
+        return $count;
     }
 
 }
