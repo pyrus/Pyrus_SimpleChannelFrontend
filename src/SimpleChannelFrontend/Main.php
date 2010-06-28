@@ -41,15 +41,15 @@ class Main
     public $options = array('view'   => 'news',
                             'format' => 'html');
     
-    protected static $view_map = array('news'       => 'PEAR2\SimpleChannelFrontend\News',
-                                       'packages'   => 'PEAR2\SimpleChannelFrontend\PackageList',
-                                       'package'    => 'PEAR2\SimpleChannelFrontend\Package',
-                                       'release'    => 'PEAR2\SimpleChannelFrontend\PackageRelease',
-                                       'latest'     => 'PEAR2\SimpleChannelFrontend\LatestReleases',
-                                       'categories' => 'PEAR2\SimpleChannelFrontend\Categories',
-                                       'category'   => 'PEAR2\SimpleChannelFrontend\Category',
-                                       'support'    => 'PEAR2\SimpleChannelFrontend\Support',
-                                       'search'     => 'PEAR2\SimpleChannelFrontend\Search',
+    protected static $view_map = array('news'        => 'PEAR2\SimpleChannelFrontend\News',
+                                       'packages'    => 'PEAR2\SimpleChannelFrontend\PackageList',
+                                       'package'     => 'PEAR2\SimpleChannelFrontend\Package',
+                                       'release'     => 'PEAR2\SimpleChannelFrontend\PackageRelease',
+                                       'latest'      => 'PEAR2\SimpleChannelFrontend\LatestReleases',
+                                       'categories'  => 'PEAR2\SimpleChannelFrontend\Categories',
+                                       'category'    => 'PEAR2\SimpleChannelFrontend\Category',
+                                       'support'     => 'PEAR2\SimpleChannelFrontend\Support',
+                                       'search'      => 'PEAR2\SimpleChannelFrontend\Search',
                                        'filebrowser' => 'PEAR2\SimpleChannelFrontend\ReleaseFileBrowser',
     );
 
