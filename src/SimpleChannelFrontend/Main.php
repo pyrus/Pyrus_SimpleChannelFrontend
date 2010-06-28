@@ -32,12 +32,14 @@ class Main
      */
     public static $channel;
     
+    static public $channel_path;
+    
     public $page_title = '{page_title}';
     
     public $page_content;
     
     public $options = array('view'   => 'news',
-                               'format' => 'html');
+                            'format' => 'html');
     
     protected static $view_map = array('news'       => 'PEAR2\SimpleChannelFrontend\News',
                                        'packages'   => 'PEAR2\SimpleChannelFrontend\PackageList',
@@ -47,7 +49,9 @@ class Main
                                        'categories' => 'PEAR2\SimpleChannelFrontend\Categories',
                                        'category'   => 'PEAR2\SimpleChannelFrontend\Category',
                                        'support'    => 'PEAR2\SimpleChannelFrontend\Support',
-                                       'search'     => 'PEAR2\SimpleChannelFrontend\Search');
+                                       'search'     => 'PEAR2\SimpleChannelFrontend\Search',
+                                       'filebrowser' => 'PEAR2\SimpleChannelFrontend\ReleaseFileBrowser',
+    );
 
     public static $url = '';
 
@@ -102,15 +106,15 @@ class Main
         \PEAR2\Pyrus\Config::current()->cache_dir = '/tmp';
         
         static::$channel = \PEAR2\Pyrus\Config::current()->channelregistry['pear2.php.net'];
-        $base_directory = dirname($channel->path);
-        
+        static::$channel_path = dirname($channel->path);
+
         $rest = str_replace('http://' . $channel->name,
                             '',
                             $channel->protocols->rest['REST1.0']->baseurl);
         
-        Internet::addDirectory($base_directory . '/get',
+        Internet::addDirectory(static::$channel_path . '/get',
                                'http://' . $channel->name . '/get/');
-        Internet::addDirectory($base_directory . $rest,
+        Internet::addDirectory(static::$channel_path . $rest,
                                $channel->protocols->rest['REST1.0']->baseurl);
         
         static::$channel->fromArray($channel->getArray());
