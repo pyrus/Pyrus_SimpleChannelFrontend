@@ -48,7 +48,7 @@ class ReleaseFileBrowser
             throw new \Exception('Cannot find the package ' . $file . '.');
         }
 
-        $this->releaseFile = new \PharData($file);
+        $this->releaseFile = new ReleaseFileBrowser\FilteredIterator(new \PharData($file));
 
         if (isset($options['file'])) {
             $file = 'phar://' . $file . '/' . $options['file'];

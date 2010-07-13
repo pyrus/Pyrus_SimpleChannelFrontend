@@ -1,6 +1,6 @@
 <ul style="width:250px; float:left;">
 <?php
-foreach (new RecursiveIteratorIterator($context->getRaw('release')) as $file) {
+foreach ($context->release as $file) {
     $filename = substr($file, strpos($file, $context->options['release'])+strlen($context->options['release'])+1);
     echo '<li><a href="?view=filebrowser&amp;release='.$context->options['release'].'&amp;internal='.$filename.'">'.$filename.'</a></li>';
 }
