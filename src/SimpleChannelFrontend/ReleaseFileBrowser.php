@@ -17,7 +17,9 @@ class ReleaseFileBrowser
         $channel       = $options['frontend']::$channel;
         $this->package = $channel->remotepackage[$options['package']];
 
-        if (isset($options['packageVersion'])) {
+        if (   isset($options['packageVersion'])
+            && $options['packageVersion'] != ''
+        ) {
             // try to set specified version
             try {
                 $this->package->setRawVersion(
