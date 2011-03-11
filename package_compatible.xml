@@ -8,19 +8,19 @@
 This package provides a simple frontend to a PEAR channel by directly using
 the PEAR channel files.
 
-To use, place the PEAR2_SimpleChannelFrontend-0.1.0.phar in the root of your
-channel server as index.php, and add an .htaccess file with the following:
+To use, place the PEAR2_SimpleChannelFrontend .phar in the root of your
+channel server as `index.php`, and add an `.htaccess` file with the following:
 
-&lt;IfModule mod_rewrite.c&gt;
-RewriteEngine On
-RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . index.php [L]
-&lt;/IfModule&gt;
+    &lt;IfModule mod_rewrite.c&gt;
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . index.php [L]
+    &lt;/IfModule&gt;
 
-For a more customized interface, you can create a config.inc.php file, or
-install the package and use the files in the www_dir as a starting point for
+For a more customized interface, you can create a `config.inc.php` file, or
+install the package and use the files in the `www_dir` as a starting point for
 a fully customized PEAR channel.
 </description>
  <lead>
@@ -29,55 +29,60 @@ a fully customized PEAR channel.
   <email>saltybeagle@php.net</email>
   <active>yes</active>
  </lead>
- <date>2010-03-30</date>
- <time>21:24:00</time>
+ <date>2011-03-11</date>
+ <time>16:53:43</time>
  <version>
   <release>0.1.0</release>
   <api>0.1.0</api>
  </version>
  <stability>
-  <release>alpha</release>
+  <release>devel</release>
   <api>alpha</api>
  </stability>
  <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
- <notes>Package PEAR2_SimpleChannelFrontend release notes for version 0.1.0.
+ <notes>Features and BugFixes:
 
-Basic features:
-* Customizable News and Support pages
-* Package pages with download links
-* Category listing
+ - Change pear2 namespace to PEAR2 [saltybeagle]
+ - Add release file browser [saltybeagle|gauthierm]
+ - Add category page [gauthierm]
+ - Add view for latest releases, ordered by date [saltybeagle]
+ - Support pagination for releases and packages [saltybeagle]
+ - Add package search support [saltybeagle]
 
 
 Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
  <contents>
   <dir name="/">
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/rss/templates/rss/Main.tpl.php"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/rss/templates/rss/LatestReleases.tpl.php"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/UnregisteredViewException.tpl.php"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/Support.tpl.php"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/Search.tpl.php"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/PackageRelease.tpl.php"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/PackageList.tpl.php"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/Package.tpl.php"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/News.tpl.php"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/Main.tpl.php"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/LatestReleases.tpl.php"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/InstallInstructions.tpl.php"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/Categories.tpl.php"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/sample.htaccess"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/index.php"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/css/images/css/images/header.png"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/css/css/text.css"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/css/css/scf.css"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/css/css/reset.css"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/css/css/all.css"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/css/css/960.css"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/config.sample.php"/>
-   <file role="www" name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/config.inc.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/rss/templates/rss/Main.tpl.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/rss/templates/rss/LatestReleases.tpl.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/UnregisteredViewException.tpl.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/Support.tpl.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/Search.tpl.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/ReleaseFileBrowser.tpl.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/PackageRelease.tpl.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/PackageList.tpl.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/Package.tpl.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/News.tpl.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/Main.tpl.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/LatestReleases.tpl.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/InstallInstructions.tpl.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/Category.tpl.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/Categories.tpl.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/sample.htaccess"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/index.php"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/css/images/css/images/header.png"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/css/css/text.css"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/css/css/scf.css"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/css/css/reset.css"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/css/css/all.css"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/css/css/960.css"/>
+   <file role="www" name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/config.sample.php"/>
    <file role="php" name="php/PEAR2/SimpleChannelFrontend/UnregisteredViewException.php"/>
    <file role="php" name="php/PEAR2/SimpleChannelFrontend/TemplateMapper.php"/>
    <file role="php" name="php/PEAR2/SimpleChannelFrontend/Support.php"/>
    <file role="php" name="php/PEAR2/SimpleChannelFrontend/Search.php"/>
+   <file role="php" name="php/PEAR2/SimpleChannelFrontend/ReleaseFileBrowser/FilteredIterator.php"/>
+   <file role="php" name="php/PEAR2/SimpleChannelFrontend/ReleaseFileBrowser.php"/>
    <file role="php" name="php/PEAR2/SimpleChannelFrontend/PackageRelease.php"/>
    <file role="php" name="php/PEAR2/SimpleChannelFrontend/PackageList.php"/>
    <file role="php" name="php/PEAR2/SimpleChannelFrontend/Package.php"/>
@@ -86,6 +91,7 @@ Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
    <file role="php" name="php/PEAR2/SimpleChannelFrontend/LatestReleases.php"/>
    <file role="php" name="php/PEAR2/SimpleChannelFrontend/Internet.php"/>
    <file role="php" name="php/PEAR2/SimpleChannelFrontend/Exception.php"/>
+   <file role="php" name="php/PEAR2/SimpleChannelFrontend/Category.php"/>
    <file role="php" name="php/PEAR2/SimpleChannelFrontend/Categories.php"/>
   </dir>
  </contents>
@@ -102,6 +108,7 @@ Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
  <phprelease>
   <filelist>
    <install name="php/PEAR2/SimpleChannelFrontend/Categories.php" as="PEAR2/SimpleChannelFrontend/Categories.php"/>
+   <install name="php/PEAR2/SimpleChannelFrontend/Category.php" as="PEAR2/SimpleChannelFrontend/Category.php"/>
    <install name="php/PEAR2/SimpleChannelFrontend/Exception.php" as="PEAR2/SimpleChannelFrontend/Exception.php"/>
    <install name="php/PEAR2/SimpleChannelFrontend/Internet.php" as="PEAR2/SimpleChannelFrontend/Internet.php"/>
    <install name="php/PEAR2/SimpleChannelFrontend/LatestReleases.php" as="PEAR2/SimpleChannelFrontend/LatestReleases.php"/>
@@ -110,33 +117,36 @@ Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
    <install name="php/PEAR2/SimpleChannelFrontend/Package.php" as="PEAR2/SimpleChannelFrontend/Package.php"/>
    <install name="php/PEAR2/SimpleChannelFrontend/PackageList.php" as="PEAR2/SimpleChannelFrontend/PackageList.php"/>
    <install name="php/PEAR2/SimpleChannelFrontend/PackageRelease.php" as="PEAR2/SimpleChannelFrontend/PackageRelease.php"/>
+   <install name="php/PEAR2/SimpleChannelFrontend/ReleaseFileBrowser.php" as="PEAR2/SimpleChannelFrontend/ReleaseFileBrowser.php"/>
+   <install name="php/PEAR2/SimpleChannelFrontend/ReleaseFileBrowser/FilteredIterator.php" as="PEAR2/SimpleChannelFrontend/ReleaseFileBrowser/FilteredIterator.php"/>
    <install name="php/PEAR2/SimpleChannelFrontend/Search.php" as="PEAR2/SimpleChannelFrontend/Search.php"/>
    <install name="php/PEAR2/SimpleChannelFrontend/Support.php" as="PEAR2/SimpleChannelFrontend/Support.php"/>
    <install name="php/PEAR2/SimpleChannelFrontend/TemplateMapper.php" as="PEAR2/SimpleChannelFrontend/TemplateMapper.php"/>
    <install name="php/PEAR2/SimpleChannelFrontend/UnregisteredViewException.php" as="PEAR2/SimpleChannelFrontend/UnregisteredViewException.php"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/config.inc.php" as="pear2.php.net/config.inc.php"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/config.sample.php" as="pear2.php.net/config.sample.php"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/css/css/960.css" as="pear2.php.net/css/css/960.css"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/css/css/all.css" as="pear2.php.net/css/css/all.css"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/css/css/reset.css" as="pear2.php.net/css/css/reset.css"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/css/css/scf.css" as="pear2.php.net/css/css/scf.css"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/css/css/text.css" as="pear2.php.net/css/css/text.css"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/css/images/css/images/header.png" as="pear2.php.net/css/images/css/images/header.png"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/index.php" as="pear2.php.net/index.php"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/sample.htaccess" as="pear2.php.net/sample.htaccess"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/Categories.tpl.php" as="pear2.php.net/templates/html/templates/html/Categories.tpl.php"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/InstallInstructions.tpl.php" as="pear2.php.net/templates/html/templates/html/InstallInstructions.tpl.php"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/LatestReleases.tpl.php" as="pear2.php.net/templates/html/templates/html/LatestReleases.tpl.php"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/Main.tpl.php" as="pear2.php.net/templates/html/templates/html/Main.tpl.php"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/News.tpl.php" as="pear2.php.net/templates/html/templates/html/News.tpl.php"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/Package.tpl.php" as="pear2.php.net/templates/html/templates/html/Package.tpl.php"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/PackageList.tpl.php" as="pear2.php.net/templates/html/templates/html/PackageList.tpl.php"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/PackageRelease.tpl.php" as="pear2.php.net/templates/html/templates/html/PackageRelease.tpl.php"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/Search.tpl.php" as="pear2.php.net/templates/html/templates/html/Search.tpl.php"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/Support.tpl.php" as="pear2.php.net/templates/html/templates/html/Support.tpl.php"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html/templates/html/UnregisteredViewException.tpl.php" as="pear2.php.net/templates/html/templates/html/UnregisteredViewException.tpl.php"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/rss/templates/rss/LatestReleases.tpl.php" as="pear2.php.net/templates/rss/templates/rss/LatestReleases.tpl.php"/>
-   <install name="www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/rss/templates/rss/Main.tpl.php" as="pear2.php.net/templates/rss/templates/rss/Main.tpl.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/config.sample.php" as="PEAR2_SimpleChannelFrontend/config.sample.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/css/css/960.css" as="PEAR2_SimpleChannelFrontend/css/css/960.css"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/css/css/all.css" as="PEAR2_SimpleChannelFrontend/css/css/all.css"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/css/css/reset.css" as="PEAR2_SimpleChannelFrontend/css/css/reset.css"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/css/css/scf.css" as="PEAR2_SimpleChannelFrontend/css/css/scf.css"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/css/css/text.css" as="PEAR2_SimpleChannelFrontend/css/css/text.css"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/css/images/css/images/header.png" as="PEAR2_SimpleChannelFrontend/css/images/css/images/header.png"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/index.php" as="PEAR2_SimpleChannelFrontend/index.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/sample.htaccess" as="PEAR2_SimpleChannelFrontend/sample.htaccess"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/Categories.tpl.php" as="PEAR2_SimpleChannelFrontend/templates/html/templates/html/Categories.tpl.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/Category.tpl.php" as="PEAR2_SimpleChannelFrontend/templates/html/templates/html/Category.tpl.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/InstallInstructions.tpl.php" as="PEAR2_SimpleChannelFrontend/templates/html/templates/html/InstallInstructions.tpl.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/LatestReleases.tpl.php" as="PEAR2_SimpleChannelFrontend/templates/html/templates/html/LatestReleases.tpl.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/Main.tpl.php" as="PEAR2_SimpleChannelFrontend/templates/html/templates/html/Main.tpl.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/News.tpl.php" as="PEAR2_SimpleChannelFrontend/templates/html/templates/html/News.tpl.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/Package.tpl.php" as="PEAR2_SimpleChannelFrontend/templates/html/templates/html/Package.tpl.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/PackageList.tpl.php" as="PEAR2_SimpleChannelFrontend/templates/html/templates/html/PackageList.tpl.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/PackageRelease.tpl.php" as="PEAR2_SimpleChannelFrontend/templates/html/templates/html/PackageRelease.tpl.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/ReleaseFileBrowser.tpl.php" as="PEAR2_SimpleChannelFrontend/templates/html/templates/html/ReleaseFileBrowser.tpl.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/Search.tpl.php" as="PEAR2_SimpleChannelFrontend/templates/html/templates/html/Search.tpl.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/Support.tpl.php" as="PEAR2_SimpleChannelFrontend/templates/html/templates/html/Support.tpl.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/html/templates/html/UnregisteredViewException.tpl.php" as="PEAR2_SimpleChannelFrontend/templates/html/templates/html/UnregisteredViewException.tpl.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/rss/templates/rss/LatestReleases.tpl.php" as="PEAR2_SimpleChannelFrontend/templates/rss/templates/rss/LatestReleases.tpl.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/templates/rss/templates/rss/Main.tpl.php" as="PEAR2_SimpleChannelFrontend/templates/rss/templates/rss/Main.tpl.php"/>
   </filelist>
  </phprelease>
 </package>
