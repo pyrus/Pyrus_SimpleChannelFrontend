@@ -11,8 +11,8 @@ foreach (array('phar', 'spl', 'pcre', 'simplexml') as $ext) {
 function PEAR2_SimpleChannelFrontend_autoload($class)
 {
     $class = str_replace('_', '\\', $class);
-    if (file_exists('phar://' . __FILE__ . '/PEAR2_SimpleChannelFrontend-0.1.0/php/' . implode('/', explode('\\', $class)) . '.php')) {
-        include 'phar://' . __FILE__ . '/PEAR2_SimpleChannelFrontend-0.1.0/php/' . implode('/', explode('\\', $class)) . '.php';
+    if (file_exists('phar://' . __FILE__ . '/PEAR2_SimpleChannelFrontend-0.2.0/php/' . implode('/', explode('\\', $class)) . '.php')) {
+        include 'phar://' . __FILE__ . '/PEAR2_SimpleChannelFrontend-0.2.0/php/' . implode('/', explode('\\', $class)) . '.php';
     }
 }
 spl_autoload_register("PEAR2_SimpleChannelFrontend_autoload");
@@ -36,7 +36,7 @@ $mimes = array(
 
 function phar_rewrites($mimes)
 {
-    $d = 'phar://'.__FILE__.'/PEAR2_SimpleChannelFrontend-0.1.0/www/PEAR2_SimpleChannelFrontend/pear2.php.net/';
+    $d = 'phar://'.__FILE__.'/PEAR2_SimpleChannelFrontend-0.2.0/www/pear2.php.net/PEAR2_SimpleChannelFrontend';
     $r = $_SERVER['REQUEST_URI'];
     
     if ($r != '/' && file_exists($d . $r)) {
