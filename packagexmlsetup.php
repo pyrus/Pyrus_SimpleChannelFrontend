@@ -18,4 +18,5 @@ $package->dependencies['required']->package['pear2.php.net/PEAR2_Pyrus']->save()
 $package->dependencies['required']->package['pear2.php.net/PEAR2_Templates_Savant']->save();
 
 unset($package->files['www/config.inc.php']);
+unset($package->files['www/.htaccess']);
 ?>
