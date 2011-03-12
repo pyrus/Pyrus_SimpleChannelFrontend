@@ -1,4 +1,5 @@
 /www/config.inc.php
+/www/.htaccess
 /.settings
 /.project
 /.buildpath
