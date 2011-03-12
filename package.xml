@@ -30,7 +30,7 @@ a fully customized PEAR channel.
   <active>yes</active>
  </lead>
  <date>2011-03-11</date>
- <time>16:53:43</time>
+ <time>21:17:04</time>
  <version>
   <release>0.2.0</release>
   <api>0.1.0</api>
@@ -53,26 +53,28 @@ a fully customized PEAR channel.
 Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
  <contents>
   <dir name="/">
-   <dir name="src" baseinstalldir="PEAR2">
-    <dir name="SimpleChannelFrontend">
-     <dir name="ReleaseFileBrowser">
-      <file role="php" name="FilteredIterator.php"/>
+   <dir name="src" baseinstalldir="/">
+    <dir name="PEAR2">
+     <dir name="SimpleChannelFrontend">
+      <dir name="ReleaseFileBrowser">
+       <file role="php" name="FilteredIterator.php"/>
+      </dir>
+      <file role="php" name="Categories.php"/>
+      <file role="php" name="Category.php"/>
+      <file role="php" name="Exception.php"/>
+      <file role="php" name="Internet.php"/>
+      <file role="php" name="LatestReleases.php"/>
+      <file role="php" name="Main.php"/>
+      <file role="php" name="News.php"/>
+      <file role="php" name="Package.php"/>
+      <file role="php" name="PackageList.php"/>
+      <file role="php" name="PackageRelease.php"/>
+      <file role="php" name="ReleaseFileBrowser.php"/>
+      <file role="php" name="Search.php"/>
+      <file role="php" name="Support.php"/>
+      <file role="php" name="TemplateMapper.php"/>
+      <file role="php" name="UnregisteredViewException.php"/>
      </dir>
-     <file role="php" name="Categories.php"/>
-     <file role="php" name="Category.php"/>
-     <file role="php" name="Exception.php"/>
-     <file role="php" name="Internet.php"/>
-     <file role="php" name="LatestReleases.php"/>
-     <file role="php" name="Main.php"/>
-     <file role="php" name="News.php"/>
-     <file role="php" name="Package.php"/>
-     <file role="php" name="PackageList.php"/>
-     <file role="php" name="PackageRelease.php"/>
-     <file role="php" name="ReleaseFileBrowser.php"/>
-     <file role="php" name="Search.php"/>
-     <file role="php" name="Support.php"/>
-     <file role="php" name="TemplateMapper.php"/>
-     <file role="php" name="UnregisteredViewException.php"/>
     </dir>
    </dir>
    <dir name="www" baseinstalldir="/">

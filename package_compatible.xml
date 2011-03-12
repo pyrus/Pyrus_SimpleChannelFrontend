@@ -30,7 +30,7 @@ a fully customized PEAR channel.
   <active>yes</active>
  </lead>
  <date>2011-03-11</date>
- <time>16:53:43</time>
+ <time>21:17:04</time>
  <version>
   <release>0.1.0</release>
   <api>0.1.0</api>
@@ -123,6 +123,8 @@ Package PEAR2_SimpleChannelFrontend API release notes for version 0.1.0.</notes>
    <install name="php/PEAR2/SimpleChannelFrontend/Support.php" as="PEAR2/SimpleChannelFrontend/Support.php"/>
    <install name="php/PEAR2/SimpleChannelFrontend/TemplateMapper.php" as="PEAR2/SimpleChannelFrontend/TemplateMapper.php"/>
    <install name="php/PEAR2/SimpleChannelFrontend/UnregisteredViewException.php" as="PEAR2/SimpleChannelFrontend/UnregisteredViewException.php"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/.htaccess" as="PEAR2_SimpleChannelFrontend/.htaccess"/>
+   <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/config.inc.php" as="PEAR2_SimpleChannelFrontend/config.inc.php"/>
    <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/config.sample.php" as="PEAR2_SimpleChannelFrontend/config.sample.php"/>
    <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/css/css/960.css" as="PEAR2_SimpleChannelFrontend/css/css/960.css"/>
    <install name="www/pear2.php.net/PEAR2_SimpleChannelFrontend/css/css/all.css" as="PEAR2_SimpleChannelFrontend/css/css/all.css"/>
