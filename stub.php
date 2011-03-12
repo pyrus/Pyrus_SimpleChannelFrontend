@@ -36,12 +36,12 @@ $mimes = array(
 
 function phar_rewrites($mimes)
 {
-    $d = 'phar://'.__FILE__.'/PEAR2_SimpleChannelFrontend-0.2.0/www/pear2.php.net/PEAR2_SimpleChannelFrontend';
+    $d = 'phar://'.__FILE__.'/PEAR2_SimpleChannelFrontend-0.2.0/www/pear2.php.net/PEAR2_SimpleChannelFrontend/';
     $r = $_SERVER['REQUEST_URI'];
     
     if ($r != '/' && file_exists($d . $r)) {
         $info = pathinfo($d . $r);
-        if (isset($mimes[$info['extension']])) {
+        if (isset($info['extension'], $mimes[$info['extension']])) {
             header('Content-type:'.$mimes[$info['extension']]);
         }
         return $d . $r;
