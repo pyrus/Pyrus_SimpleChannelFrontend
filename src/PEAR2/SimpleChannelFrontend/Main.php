@@ -9,7 +9,7 @@
  * @package   PEAR2_SimpleChannelFrontend
  * @author    Brett Bieber <saltybeagle@php.net>
  * @author    Michael Gauthier <mike@silverorange.com>
- * @copyright 2009 Brett Biever, 2011 Michael Gauthier
+ * @copyright 2009 Brett Bieber, 2011 Michael Gauthier
  * @license   http://www.opensource.org/licenses/bsd-license.php New BSD License
  * @link      http://pear2.php.net/PEAR2_SimpleChannelFrontend
  */
@@ -21,7 +21,7 @@
  * @package   PEAR2_SimpleChannelFrontend
  * @author    Brett Bieber <saltybeagle@php.net>
  * @author    Michael Gauthier <mike@silverorange.com>
- * @copyright 2009 Brett Biever, 2011 Michael Gauthier
+ * @copyright 2009 Brett Bieber, 2011 Michael Gauthier
  * @license   http://www.opensource.org/licenses/bsd-license.php New BSD License
  * @link      http://pear2.php.net/PEAR2_SimpleChannelFrontend
  */
