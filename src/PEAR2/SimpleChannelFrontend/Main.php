@@ -29,20 +29,6 @@ namespace PEAR2\SimpleChannelFrontend;
 class Main
 {
     /**
-     * The channel object
-     *
-     * @var Channel
-     */
-    public static $channel;
-
-    /**
-     * The channel path
-     *
-     * @var string
-     */
-    public static $channel_path;
-
-    /**
      * The title of the current page
      *
      * @var string
@@ -67,38 +53,60 @@ class Main
     );
 
     /**
-     * Map of view routes to view classes
-     *
-     * @var array
-     *
-     * @see \PEAR2\SimpleChannelFrontendMail::registerView()
-     */
-    protected static $view_map = array(
-        'news'        => 'PEAR2\SimpleChannelFrontend\News',
-        'packages'    => 'PEAR2\SimpleChannelFrontend\PackageList',
-        'package'     => 'PEAR2\SimpleChannelFrontend\Package',
-        'release'     => 'PEAR2\SimpleChannelFrontend\PackageRelease',
-        'latest'      => 'PEAR2\SimpleChannelFrontend\LatestReleases',
-        'categories'  => 'PEAR2\SimpleChannelFrontend\Categories',
-        'category'    => 'PEAR2\SimpleChannelFrontend\Category',
-        'support'     => 'PEAR2\SimpleChannelFrontend\Support',
-        'search'      => 'PEAR2\SimpleChannelFrontend\Search',
-        'filebrowser' => 'PEAR2\SimpleChannelFrontend\ReleaseFileBrowser',
-    );
-
-    /**
-     * Application URL
-     *
-     * @var string
-     */
-    public static $url = '';
-
-    /**
      * Application title
      *
      * @var string
      */
-    public static $title = 'Simple Channel Frontend';
+    public $title = 'Simple Channel Frontend';
+
+    /**
+     * The channel object
+     *
+     * @var \PEAR2\Pyrus\ChannelInterface
+     *
+     * @see \PEAR2\SimpleChannelFrontend::setChannel()
+     * @see \PEAR2\SimpleChannelFrontend::getChannel()
+     */
+    protected $channel;
+
+    /**
+     * The channel path
+     *
+     * @var string
+     *
+     * @see \PEAR2\SimpleChannelFrontend::setChannel()
+     * @see \PEAR2\SimpleChannelFrontend::getChannelPath()
+     */
+    protected $channel_path;
+
+    /**
+     * Map of view routes to view classes
+     *
+     * @var array
+     *
+     * @see \PEAR2\SimpleChannelFrontend::registerView()
+     */
+    protected $view_map = array(
+        'news'        => '\PEAR2\SimpleChannelFrontend\News',
+        'packages'    => '\PEAR2\SimpleChannelFrontend\PackageList',
+        'package'     => '\PEAR2\SimpleChannelFrontend\Package',
+        'release'     => '\PEAR2\SimpleChannelFrontend\PackageRelease',
+        'latest'      => '\PEAR2\SimpleChannelFrontend\LatestReleases',
+        'categories'  => '\PEAR2\SimpleChannelFrontend\Categories',
+        'category'    => '\PEAR2\SimpleChannelFrontend\Category',
+        'support'     => '\PEAR2\SimpleChannelFrontend\Support',
+        'search'      => '\PEAR2\SimpleChannelFrontend\Search',
+        'filebrowser' => '\PEAR2\SimpleChannelFrontend\ReleaseFileBrowser',
+    );
+
+    /**
+     * The base URL of the frontend
+     *
+     * @var string
+     *
+     * @see \PEAR2\SimpleChannelFrontend::getURL()
+     */
+    public static $url = '';
 
     /**
      * Creates a new simple channel frontend
@@ -110,14 +118,100 @@ class Main
         \PEAR2\Pyrus\ChannelFileInterface $channel,
         $options = array()
     ) {
-        static::setChannel($channel);
+        $this->setChannel($channel);
         $this->options = array_merge($this->options, $options);
+    }
+
+    /**
+     * Instantiates the appropriate page object for the current request
+     *
+     * @return void
+     */
+    public function init()
+    {
         $this->preRun();
         try {
             $this->run();
         } catch(Exception $e) {
             $this->page_content = $e;
         }
+    }
+
+    /**
+     * Registers a new view for the channel
+     *
+     * @param string $route     the route used to identify this model and view.
+     * @param string $classname the class to instantiate when the specified
+     *                          view is requested.
+     *
+     * @return Main the current class for fluent interface.
+     */
+    public function registerView($route, $classname)
+    {
+        $this->view_map[$route] = $classname;
+        return $this;
+    }
+
+    /**
+     * Sets the channel file for this frontend
+     *
+     * @param \PEAR2\Pyrus\ChanelFileInterface $channel The channel object.
+     *
+     * @return Main the current class for fluent interface.
+     */
+    public function setChannel(\PEAR2\Pyrus\ChannelFileInterface $channel)
+    {
+        \PEAR2\Pyrus\Main::$downloadClass = __NAMESPACE__ . '\\Internet';
+        \PEAR2\Pyrus\Config::current()->cache_dir = '/tmp';
+
+        $config = \PEAR2\Pyrus\Config::current();
+
+        $this->channel      = $config->channelregistry['pear2.php.net'];
+        $this->channel_path = dirname($channel->path);
+
+        $rest = str_replace(
+            'http://' . $channel->name,
+            '',
+            $channel->protocols->rest['REST1.0']->baseurl
+        );
+
+        Internet::addDirectory(
+            $this->channel_path . '/get',
+            'http://' . $channel->name . '/get/'
+        );
+
+        Internet::addDirectory(
+            $this->channel_path . $rest,
+            $channel->protocols->rest['REST1.0']->baseurl
+        );
+
+        $this->channel->fromArray($channel->getArray());
+
+        return $this;
+    }
+
+    /**
+     * Gets this frontend's PEAR channel
+     *
+     * @return \PEAR2\Pyrus\ChannelInterface this frontend's PEAR channel.
+     *
+     * @see \PEAR2\SimpleChannelFrontend\Main::setChannel()
+     */
+    public function getChannel()
+    {
+        return $this->channel;
+    }
+
+    /**
+     * Gets the path to this frontend's PEAR channel
+     *
+     * @return string the path to this frontend's channel
+     *
+     * @see \PEAR2\SimpleChannelFrontend\Main::setChannel()
+     */
+    public function getChannelPath()
+    {
+        return $this->channel_path;
     }
 
     /**
@@ -139,43 +233,6 @@ class Main
     }
 
     /**
-     * Sets the channel file for simple channel frontend
-     *
-     * @param \PEAR2\Pyrus\IChanelFile $channel The channel object.
-     *
-     * @return void
-     */
-    public static function setChannel(
-        \PEAR2\Pyrus\ChannelFileInterface $channel
-    ) {
-        \PEAR2\Pyrus\Main::$downloadClass = __NAMESPACE__ . '\\Internet';
-        \PEAR2\Pyrus\Config::current()->cache_dir = '/tmp';
-
-        $config = \PEAR2\Pyrus\Config::current();
-
-        static::$channel      = $config->channelregistry['pear2.php.net'];
-        static::$channel_path = dirname($channel->path);
-
-        $rest = str_replace(
-            'http://' . $channel->name,
-            '',
-            $channel->protocols->rest['REST1.0']->baseurl
-        );
-
-        Internet::addDirectory(
-            static::$channel_path . '/get',
-            'http://' . $channel->name . '/get/'
-        );
-
-        Internet::addDirectory(
-            static::$channel_path . $rest,
-            $channel->protocols->rest['REST1.0']->baseurl
-        );
-
-        static::$channel->fromArray($channel->getArray());
-    }
-
-    /**
      * Determines and instantiates the page class
      *
      * The instantiated page class is set as the page content.
@@ -184,40 +241,26 @@ class Main
      */
     protected function run()
     {
-        if (!array_key_exists($this->options['view'], static::$view_map)) {
+        if (!array_key_exists($this->options['view'], $this->view_map)) {
             throw new UnregisteredViewException(
                 'No view, or incorrect view specified.'
             );
         }
 
-        $class = static::$view_map[$this->options['view']];
+        $class = $this->view_map[$this->options['view']];
         $options = array_merge($this->options, array('frontend' => $this));
         $this->page_content = new $class($options);
     }
 
     /**
-     * Registers a new view for the channel
+     * Gets the URL for a view
      *
-     * @param string $route the route used to identify this model and view.
-     * @param string $class the Class to instantiate when the specified view is
-     *                      requested.
-     *
-     * @return Main the current class for fluent interface.
-     */
-    public function registerView($route, $classname)
-    {
-        static::$view_map[$route] = $classname;
-        return $this;
-    }
-
-    /**
-     * Gets the URL for a specific view
-     *
-     * @param mixed $class optional. The class for which to return a route.
+     * @param mixed $class optional. The class for which to return a route. If
+     *                     not specified, the current URL is returned.
      *
      * @return string the URL.
      */
-    public static function getURL($class = null)
+    public function getURL($class = null)
     {
         static $default_view;
 
@@ -232,7 +275,7 @@ class Main
             if (is_object($class)) {
                 $class = get_class($class);
             }
-            $route = array_keys(static::$view_map, $class);
+            $route = array_keys($this->view_map, $class);
             if (!count($route)) {
                 throw new UnregisteredViewException(
                     'The view for that object is not registered.'
