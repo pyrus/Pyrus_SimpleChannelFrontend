@@ -23,7 +23,10 @@ if (isset($matches['package'])) {
 }
 
 $frontend = new PEAR2\SimpleChannelFrontend\Main($channel, $options);
-$frontend->setURLBase('http://'.$channel->name.'/');
+if (!isset($url)) {
+    $url = 'http://'.$channel->name.'/';
+}
+$frontend->setURLBase($url);
 $frontend->init();
 
 $savant = new PEAR2\Templates\Savant\Main();
