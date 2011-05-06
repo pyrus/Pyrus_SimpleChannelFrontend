@@ -8,24 +8,13 @@ if (file_exists('config.inc.php')) {
     exit();
 }
 
-$options = $_GET;
-
-preg_match('/\/(?<package>[0-9a-z_]+)(-(?<version>[0-9ab.]+))?$/i',
-    $_SERVER['REQUEST_URI'], $matches);
-if (isset($matches['package'])) {
-    $options['view'] = 'package';
-    $options['package'] = $matches['package'];
-
-    if (isset($matches['version'])) {
-        $options['packageVersion'] = $matches['version'];
-        $options['view']           = 'release';
-    }
-}
-
-$frontend = new PEAR2\SimpleChannelFrontend\Main($channel, $options);
 if (!isset($url)) {
     $url = 'http://'.$channel->name.'/';
 }
+
+$options = $_GET + \PEAR2\SimpleChannelFrontend\Router::getRoute($url, $_SERVER['REQUEST_URI']);
+
+$frontend = new PEAR2\SimpleChannelFrontend\Main($channel, $options);
 $frontend->setURLBase($url);
 $frontend->init();
 
