@@ -22,6 +22,23 @@ $parent->context->page_title = $context->name.' | '.$frontend->getChannel()->nam
             </li>
         </ul>
         <?php echo $savant->render($context->channel . '/' . $context->name . '-' . $context->version['release'], 'InstallInstructions.tpl.php'); ?>
+    <?php
+    
+    // reset version, maintainer count resets version for some reason
+    $context->setRawVersion(
+        null,
+        array('release' => $parent->context->options['packageVersion'])
+    );
+    
+    $filesURL = $frontend->getURL() . $context->name
+        . '-' . $context->version['release']
+        . '/files';
+    
+    ?>
+    <div class="package-files">
+        <h3><a class="button" href="<?php echo $filesURL; ?>">Browse Files</a></h3>
+        <span class="package-files-info"><?php echo $savant->render($context, 'PackageFileInfo.tpl.php'); ?>
+    </div>
     </div>
     <div class="grid_4 right releases">
         <h3>Release Notes</h3>
