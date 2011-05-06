@@ -29,11 +29,11 @@ a fully customized PEAR channel.
   <email>saltybeagle@php.net</email>
   <active>yes</active>
  </lead>
- <date>2011-03-11</date>
- <time>21:17:04</time>
+ <date>2011-05-06</date>
+ <time>20:00:04</time>
  <version>
-  <release>0.1.0</release>
-  <api>0.1.0</api>
+  <release>0.3.0</release>
+  <api>0.3.0</api>
  </version>
  <stability>
   <release>devel</release>

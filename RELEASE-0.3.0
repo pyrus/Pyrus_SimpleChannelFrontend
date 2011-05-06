@@ -1,0 +1,5 @@
+Features:
+
+ - reduce number of static properties and methods [gauthierm]
+ - Split initialization into its own method outside of construct [gauthierm]
+ - cleanup [gauthierm]
