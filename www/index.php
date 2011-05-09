@@ -2,6 +2,8 @@
 if (file_exists('config.inc.php')) {
     require_once 'config.inc.php';
 } elseif (file_exists('channel.xml')) {
+    $config = PEAR2\Pyrus\Config::singleton('/tmp');
+    $config->cache_dir = '/tmp';
     $channel = new \PEAR2\Pyrus\ChannelFile('channel.xml');
 } else {
     echo 'You must place this file in your channel server, or provide a config.inc.php file.';
@@ -33,4 +35,4 @@ case 'rss':
 $savant->setEscape('htmlspecialchars');
 $savant->addFilters(array($frontend, 'postRender'));
 echo $savant->render($frontend);
-?>
+
