@@ -180,6 +180,8 @@ class Main
             return $this;
         }
 
+        \PEAR2\Pyrus\Main::$downloadClass = __NAMESPACE__ . '\\Internet';
+
         $rest = str_replace(
             'http://' . $channel_file->name,
             '',
