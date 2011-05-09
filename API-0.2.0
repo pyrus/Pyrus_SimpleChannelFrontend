@@ -1,0 +1,4 @@
+PEAR2_SimpleChannelFrontend API release notes for version 0.2.0:
+
+Most of the static methods have been removed. See the sample config file for 
+instructions on how to set up your local channel.

@@ -21,7 +21,11 @@ channel server as `index.php`, and add an `.htaccess` file with the following:
 
 For a more customized interface, you can create a `config.inc.php` file, or
 install the package and use the files in the `www_dir` as a starting point for
-a fully customized PEAR channel.
+a fully customized PEAR channel. The pear2.php.net uses this method for a 
+custom frontend.
+
+PEAR2_SimpleChannelFrontend can also be used as a viewer for remote PEAR
+channels. See the `config.sample.php` file for an example of how to do this.
 </description>
  <lead>
   <name>Brett Bieber</name>
@@ -29,24 +33,37 @@ a fully customized PEAR channel.
   <email>saltybeagle@php.net</email>
   <active>yes</active>
  </lead>
- <date>2011-05-06</date>
- <time>20:00:04</time>
+ <date>2011-05-09</date>
+ <time>14:37:38</time>
  <version>
-  <release>0.3.0</release>
-  <api>0.3.0</api>
+  <release>0.2.0</release>
+  <api>0.2.0</api>
  </version>
  <stability>
   <release>alpha</release>
   <api>alpha</api>
  </stability>
  <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
- <notes>Features:
+ <notes>Features and BugFixes:
 
- - reduce number of static properties and methods [gauthierm]
+ - Change pear2 namespace to PEAR2 [saltybeagle]
+ - Add release file browser [saltybeagle|gauthierm]
+ - Add category page [gauthierm]
+ - Add view for latest releases, ordered by date [saltybeagle]
+ - Support pagination for releases and packages [saltybeagle]
+ - Add package search support [saltybeagle]
+ - Reduce number of static properties and methods [gauthierm]
  - Split initialization into its own method outside of construct [gauthierm]
- - cleanup [gauthierm]
+ - Various cleanup [gauthierm]
+ - Add router for clean URLs, backported from PEAR2Web [saltybeagle]
+ - Add release file browsing support, backported from PEAR2 [saltybeagle|gauthierm]
+ - Support using the frontend as a viewer for remote channels [saltybeagle]
 
-</notes>
+
+PEAR2_SimpleChannelFrontend API release notes for version 0.2.0:
+
+Most of the static methods have been removed. See the sample config file for 
+instructions on how to set up your local channel.</notes>
  <contents>
   <dir name="/">
    <dir name="src" baseinstalldir="/">
@@ -66,6 +83,7 @@ a fully customized PEAR channel.
       <file role="php" name="PackageList.php"/>
       <file role="php" name="PackageRelease.php"/>
       <file role="php" name="ReleaseFileBrowser.php"/>
+      <file role="php" name="Router.php"/>
       <file role="php" name="Search.php"/>
       <file role="php" name="Support.php"/>
       <file role="php" name="TemplateMapper.php"/>
@@ -80,9 +98,14 @@ a fully customized PEAR channel.
      </dir>
      <file role="www" name="960.css"/>
      <file role="www" name="all.css"/>
+     <file role="www" name="file-browser.css"/>
+     <file role="www" name="highlight-idea.css"/>
      <file role="www" name="reset.css"/>
      <file role="www" name="scf.css"/>
      <file role="www" name="text.css"/>
+    </dir>
+    <dir name="js">
+     <file role="www" name="highlight.pack.js"/>
     </dir>
     <dir name="templates">
      <dir name="html">
@@ -93,6 +116,7 @@ a fully customized PEAR channel.
       <file role="www" name="Main.tpl.php"/>
       <file role="www" name="News.tpl.php"/>
       <file role="www" name="Package.tpl.php"/>
+      <file role="www" name="PackageFileInfo.tpl.php"/>
       <file role="www" name="PackageList.tpl.php"/>
       <file role="www" name="PackageRelease.tpl.php"/>
       <file role="www" name="ReleaseFileBrowser.tpl.php"/>
@@ -114,7 +138,7 @@ a fully customized PEAR channel.
  <dependencies>
   <required>
    <php>
-    <min>5.2.0</min>
+    <min>5.3.2</min>
    </php>
    <pearinstaller>
     <min>2.0.0a1</min>
