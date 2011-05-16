@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="<?php echo $frontend->getURL(); ?>css/all.css" />
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <script src="<?php echo $frontend->getURL(); ?>js/pearweb.js"></script>
     <script src="<?php echo $frontend->getURL(); ?>js/highlight.pack.js"></script>
     <title><?php echo $context->page_title; ?></title>
   </head>
