@@ -26,9 +26,12 @@ $savant->setTemplatePath(array(__DIR__ . '/templates/html'));
 $savant->addGlobal('frontend', $frontend);
 
 switch($frontend->options['format']) {
-case 'rss':
-    $savant->addTemplatePath(__DIR__.'/templates/'.$frontend->options['format']);
-    break;
+	case 'partial':
+		\PEAR2\SimpleChannelFrontend\TemplateMapper::$output_template['PEAR2\\SimpleChannelFrontend\\Main'] = 'Main-partial';
+		break;
+    case 'rss':
+        $savant->addTemplatePath(__DIR__.'/templates/'.$frontend->options['format']);
+        break;
 }
 
 
