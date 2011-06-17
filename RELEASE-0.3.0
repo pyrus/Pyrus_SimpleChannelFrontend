@@ -1,0 +1,24 @@
+So glad to announce this release! Many features built for pear2.php.net were
+backported so all PEAR channels can benefit. In particular, speed improvements,
+release file browsing, and better error handling.
+
+As usual you can grab the new [SCS .phar](http://pear2.php.net/get/PEAR2_SimpleChannelServer-0.3.0.phar),
+drop it in your PEAR channel's document root as `index.php` and you're off to
+the races.
+
+You can also create a `config.inc.php` file for browsing a remote channel.
+
+
+See the details for more info!
+
+Sweet Sexy Additions:
+
+* Release file browsing support backported from pear2.php.net
+* SimpleChannelFrontend can now be used as a viewer for remote PEAR channels
+* Output caching support for speeding up channels
+* New "partial" output format for AJAX, XHR support
+* Pretty error pages, and better error handling
+
+Bugfixes:
+
+* Remove reference to missing JS file
