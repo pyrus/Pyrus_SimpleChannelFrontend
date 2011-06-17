@@ -26,7 +26,7 @@
  * @link      http://pear2.php.net/PEAR2_SimpleChannelFrontend
  */
 namespace PEAR2\SimpleChannelFrontend;
-class Main
+class Main implements \PEAR2\Templates\Savant\Turbo\CacheableInterface
 {
     /**
      * The title of the current page
@@ -119,22 +119,7 @@ class Main
         $options = array()
     ) {
         $this->setChannel($channel);
-        $this->options = array_merge($this->options, $options);
-    }
-
-    /**
-     * Instantiates the appropriate page object for the current request
-     *
-     * @return void
-     */
-    public function init()
-    {
-        $this->preRun();
-        try {
-            $this->run();
-        } catch(Exception $e) {
-            $this->page_content = $e;
-        }
+        $this->options = $options + $this->options;
     }
 
     /**
@@ -226,12 +211,17 @@ class Main
         return $this->channel_path;
     }
 
+    public function getCacheKey()
+    {
+        return serialize($this->options);
+    }
+
     /**
      * Sets appropriate HTTP headers before the page is rendered
      *
      * @return void
      */
-    protected function preRun()
+    public function preRun($cached)
     {
         switch ($this->options['format']) {
         case 'rss':
@@ -251,17 +241,21 @@ class Main
      *
      * @return void
      */
-    protected function run()
+    public function run()
     {
-        if (!array_key_exists($this->options['view'], $this->view_map)) {
-            throw new UnregisteredViewException(
-                'No view, or incorrect view specified.'
-            );
-        }
+        try {
+            if (!array_key_exists($this->options['view'], $this->view_map)) {
+                throw new UnregisteredViewException(
+                    'No view, or incorrect view specified.'
+                );
+            }
 
-        $class = $this->view_map[$this->options['view']];
-        $options = array_merge($this->options, array('frontend' => $this));
-        $this->page_content = new $class($options);
+            $class = $this->view_map[$this->options['view']];
+            $options = array_merge($this->options, array('frontend' => $this));
+            $this->page_content = new $class($options);
+        } catch(\Exception $e) {
+            $this->page_content = $e;
+        }
     }
 
     /**

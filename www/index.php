@@ -18,9 +18,8 @@ $options = $_GET + \PEAR2\SimpleChannelFrontend\Router::getRoute($url, $_SERVER[
 
 $frontend = new PEAR2\SimpleChannelFrontend\Main($channel, $options);
 $frontend->setURLBase($url);
-$frontend->init();
 
-$savant = new PEAR2\Templates\Savant\Main();
+$savant = new PEAR2\Templates\Savant\Turbo\Main();
 $savant->setClassToTemplateMapper(new PEAR2\SimpleChannelFrontend\TemplateMapper);
 $savant->setTemplatePath(array(__DIR__ . '/templates/html'));
 $savant->addGlobal('frontend', $frontend);
