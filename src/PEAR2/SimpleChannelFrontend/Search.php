@@ -1,7 +1,7 @@
 <?php
 
-namespace PEAR2\SimpleChannelFrontend;
-use PEAR2\Pyrus\Channel;
+namespace Pyrus\SimpleChannelFrontend;
+use Pyrus\Channel;
 
 class Search extends \FilterIterator implements \Countable
 {
@@ -15,7 +15,7 @@ class Search extends \FilterIterator implements \Countable
 
         $channel = $options['frontend']->getChannel();
 
-        parent::__construct(new \PEAR2\Pyrus\Channel\RemotePackages($channel));
+        parent::__construct(new \Pyrus\Channel\RemotePackages($channel));
     }
 
     public function accept()

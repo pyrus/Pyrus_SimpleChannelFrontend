@@ -1,5 +1,5 @@
 <?php
-namespace PEAR2\SimpleChannelFrontend;
+namespace Pyrus\SimpleChannelFrontend;
 class News
 {
     

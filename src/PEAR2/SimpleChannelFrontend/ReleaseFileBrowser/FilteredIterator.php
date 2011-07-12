@@ -1,5 +1,5 @@
 <?php
-namespace PEAR2\SimpleChannelFrontend\ReleaseFileBrowser;
+namespace Pyrus\SimpleChannelFrontend\ReleaseFileBrowser;
 
 class FilteredIterator extends \RecursiveFilterIterator
 {

@@ -2,7 +2,7 @@
 /**
  * Simulate the Internet
  */
-namespace PEAR2\SimpleChannelFrontend;
+namespace Pyrus\SimpleChannelFrontend;
 class Internet extends \PEAR2\HTTP\Request
 {
 

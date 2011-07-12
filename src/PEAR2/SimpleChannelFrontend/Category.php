@@ -1,9 +1,9 @@
 <?php
-namespace PEAR2\SimpleChannelFrontend;
+namespace Pyrus\SimpleChannelFrontend;
 class Category implements \IteratorAggregate, \ArrayAccess, \Countable
 {
     /**
-     * @var \PEAR2\Pyrus\Channel\RemoteCategory
+     * @var \Pyrus\Channel\RemoteCategory
      */
     protected $_category;
 

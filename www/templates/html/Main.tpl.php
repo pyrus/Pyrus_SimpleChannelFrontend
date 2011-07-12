@@ -15,16 +15,16 @@
         <div class="header">
             <h1><?php echo $frontend->getChannel()->summary; ?></h1>
             <ul class="navigation">
-                <li><a href="<?php echo $frontend->getURL('PEAR2\SimpleChannelFrontend\News'); ?>">Home</a></li>
-                <li><a href="<?php echo $frontend->getURL('PEAR2\SimpleChannelFrontend\PackageList'); ?>">Packages</a></li>
-                <li><a href="<?php echo $frontend->getURL('PEAR2\SimpleChannelFrontend\Categories'); ?>">Categories</a></li>
-                <li><a href="<?php echo $frontend->getURL('PEAR2\SimpleChannelFrontend\Support'); ?>">Support</a></li>
+                <li><a href="<?php echo $frontend->getURL('Pyrus\SimpleChannelFrontend\News'); ?>">Home</a></li>
+                <li><a href="<?php echo $frontend->getURL('Pyrus\SimpleChannelFrontend\PackageList'); ?>">Packages</a></li>
+                <li><a href="<?php echo $frontend->getURL('Pyrus\SimpleChannelFrontend\Categories'); ?>">Categories</a></li>
+                <li><a href="<?php echo $frontend->getURL('Pyrus\SimpleChannelFrontend\Support'); ?>">Support</a></li>
             </ul>
         </div>
         <div class="content">
             <?php echo $savant->render($context->page_content); ?>
         </div>
-        <div class="footer">This is a PEAR channel running <a href="http://pear2.php.net/PEAR2_SimpleChannelFrontend">PEAR2_SimpleChannelFrontend</a></div>
+        <div class="footer">This is a PEAR channel running <a href="http://pear2.php.net/Pyrus_SimpleChannelFrontend">Pyrus_SimpleChannelFrontend</a></div>
     </div>
   </body>
 </html>
