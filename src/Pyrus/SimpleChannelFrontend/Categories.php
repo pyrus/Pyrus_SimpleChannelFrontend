@@ -1,6 +1,6 @@
 <?php
-namespace PEAR2\SimpleChannelFrontend;
-class PackageList extends \PEAR2\Pyrus\Channel\RemotePackages
+namespace Pyrus\SimpleChannelFrontend;
+class Categories extends \Pyrus\Channel\RemoteCategories
 {
     function __construct($options = array())
     {

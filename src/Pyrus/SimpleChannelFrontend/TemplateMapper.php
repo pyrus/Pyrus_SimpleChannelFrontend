@@ -1,5 +1,5 @@
 <?php
-namespace PEAR2\SimpleChannelFrontend;
+namespace Pyrus\SimpleChannelFrontend;
 class TemplateMapper extends \PEAR2\Templates\Savant\ClassToTemplateMapper
 {
     static protected $templatePath = '@www_dir@';
@@ -13,10 +13,10 @@ class TemplateMapper extends \PEAR2\Templates\Savant\ClassToTemplateMapper
                 self::$templatePath = __DIR__ . '/../../www/templates/html';
             } else {
                 // running from extracted archive
-                self::$templatePath = __DIR__ . '/../../../www/PEAR2_SimpleChannelFrontend/pear2.php.net/templates/html';
+                self::$templatePath = __DIR__ . '/../../../www/Pyrus_SimpleChannelFrontend/pear2.php.net/templates/html';
             }
         }
-        static::$classname_replacement = 'PEAR2\\SimpleChannelFrontend\\';
+        static::$classname_replacement = 'Pyrus\\SimpleChannelFrontend\\';
     }
 }
 ?>

@@ -1,31 +1,31 @@
 <?php
 
 /**
- * \PEAR2\SimpleChannelFrontend\Main
+ * \Pyrus\SimpleChannelFrontend\Main
  *
  * PHP version 5
  *
  * @category  PEAR2
- * @package   PEAR2_SimpleChannelFrontend
+ * @package   Pyrus_SimpleChannelFrontend
  * @author    Brett Bieber <saltybeagle@php.net>
  * @author    Michael Gauthier <mike@silverorange.com>
  * @copyright 2009 Brett Bieber, 2011 Michael Gauthier
  * @license   http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @link      http://pear2.php.net/PEAR2_SimpleChannelFrontend
+ * @link      http://pear2.php.net/Pyrus_SimpleChannelFrontend
  */
 
 /**
- * Main class for \PEAR2\SimpleChannelFrontend
+ * Main class for \Pyrus\SimpleChannelFrontend
  *
  * @category  PEAR2
- * @package   PEAR2_SimpleChannelFrontend
+ * @package   Pyrus_SimpleChannelFrontend
  * @author    Brett Bieber <saltybeagle@php.net>
  * @author    Michael Gauthier <mike@silverorange.com>
  * @copyright 2009 Brett Bieber, 2011 Michael Gauthier
  * @license   http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @link      http://pear2.php.net/PEAR2_SimpleChannelFrontend
+ * @link      http://pear2.php.net/Pyrus_SimpleChannelFrontend
  */
-namespace PEAR2\SimpleChannelFrontend;
+namespace Pyrus\SimpleChannelFrontend;
 class Main implements \PEAR2\Templates\Savant\Turbo\CacheableInterface
 {
     /**
@@ -62,10 +62,10 @@ class Main implements \PEAR2\Templates\Savant\Turbo\CacheableInterface
     /**
      * The channel object
      *
-     * @var \PEAR2\Pyrus\ChannelInterface
+     * @var \Pyrus\ChannelInterface
      *
-     * @see \PEAR2\SimpleChannelFrontend::setChannel()
-     * @see \PEAR2\SimpleChannelFrontend::getChannel()
+     * @see \Pyrus\SimpleChannelFrontend::setChannel()
+     * @see \Pyrus\SimpleChannelFrontend::getChannel()
      */
     protected $channel;
 
@@ -74,8 +74,8 @@ class Main implements \PEAR2\Templates\Savant\Turbo\CacheableInterface
      *
      * @var string
      *
-     * @see \PEAR2\SimpleChannelFrontend::setChannel()
-     * @see \PEAR2\SimpleChannelFrontend::getChannelPath()
+     * @see \Pyrus\SimpleChannelFrontend::setChannel()
+     * @see \Pyrus\SimpleChannelFrontend::getChannelPath()
      */
     protected $channel_path;
 
@@ -84,19 +84,19 @@ class Main implements \PEAR2\Templates\Savant\Turbo\CacheableInterface
      *
      * @var array
      *
-     * @see \PEAR2\SimpleChannelFrontend::registerView()
+     * @see \Pyrus\SimpleChannelFrontend::registerView()
      */
     protected $view_map = array(
-        'news'        => 'PEAR2\SimpleChannelFrontend\News',
-        'packages'    => 'PEAR2\SimpleChannelFrontend\PackageList',
-        'package'     => 'PEAR2\SimpleChannelFrontend\Package',
-        'release'     => 'PEAR2\SimpleChannelFrontend\PackageRelease',
-        'latest'      => 'PEAR2\SimpleChannelFrontend\LatestReleases',
-        'categories'  => 'PEAR2\SimpleChannelFrontend\Categories',
-        'category'    => 'PEAR2\SimpleChannelFrontend\Category',
-        'support'     => 'PEAR2\SimpleChannelFrontend\Support',
-        'search'      => 'PEAR2\SimpleChannelFrontend\Search',
-        'filebrowser' => 'PEAR2\SimpleChannelFrontend\ReleaseFileBrowser',
+        'news'        => 'Pyrus\SimpleChannelFrontend\News',
+        'packages'    => 'Pyrus\SimpleChannelFrontend\PackageList',
+        'package'     => 'Pyrus\SimpleChannelFrontend\Package',
+        'release'     => 'Pyrus\SimpleChannelFrontend\PackageRelease',
+        'latest'      => 'Pyrus\SimpleChannelFrontend\LatestReleases',
+        'categories'  => 'Pyrus\SimpleChannelFrontend\Categories',
+        'category'    => 'Pyrus\SimpleChannelFrontend\Category',
+        'support'     => 'Pyrus\SimpleChannelFrontend\Support',
+        'search'      => 'Pyrus\SimpleChannelFrontend\Search',
+        'filebrowser' => 'Pyrus\SimpleChannelFrontend\ReleaseFileBrowser',
     );
 
     /**
@@ -104,18 +104,18 @@ class Main implements \PEAR2\Templates\Savant\Turbo\CacheableInterface
      *
      * @var string
      *
-     * @see \PEAR2\SimpleChannelFrontend::getURL()
+     * @see \Pyrus\SimpleChannelFrontend::getURL()
      */
     protected $url_base = '';
 
     /**
      * Creates a new simple channel frontend
      *
-     * @param \PEAR2\Pyrus\ChannelFile $channel the channel object.
+     * @param \Pyrus\ChannelFile $channel the channel object.
      * @param array                    $options an associative array of options.
      */
     public function __construct(
-        \PEAR2\Pyrus\ChannelFileInterface $channel,
+        \Pyrus\ChannelFileInterface $channel,
         $options = array()
     ) {
         $this->setChannel($channel);
@@ -129,7 +129,7 @@ class Main implements \PEAR2\Templates\Savant\Turbo\CacheableInterface
      * @param string $classname the class to instantiate when the specified
      *                          view is requested.
      *
-     * @return \PEAR2\SimpleChannelFrontend\Main the current class for fluent
+     * @return \Pyrus\SimpleChannelFrontend\Main the current class for fluent
      *                                           interface.
      */
     public function registerView($route, $classname)
@@ -141,16 +141,16 @@ class Main implements \PEAR2\Templates\Savant\Turbo\CacheableInterface
     /**
      * Sets the channel file for this frontend
      *
-     * @param \PEAR2\Pyrus\ChanelFileInterface $channel_file The channel object.
+     * @param \Pyrus\ChanelFileInterface $channel_file The channel object.
      *
-     * @return \PEAR2\SimpleChannelFrontend\Main the current class for fluent
+     * @return \Pyrus\SimpleChannelFrontend\Main the current class for fluent
      *                                           interface.
      */
-    public function setChannel(\PEAR2\Pyrus\ChannelFileInterface $channel_file)
+    public function setChannel(\Pyrus\ChannelFileInterface $channel_file)
     {
-        $config = \PEAR2\Pyrus\Config::current();
+        $config = \Pyrus\Config::current();
 
-        $channel = new \PEAR2\Pyrus\Channel($channel_file);
+        $channel = new \Pyrus\Channel($channel_file);
 
         // Ensure the channel currently exists in the registry
         if (!$config->channelregistry->exists($channel->name)) {
@@ -165,7 +165,7 @@ class Main implements \PEAR2\Templates\Savant\Turbo\CacheableInterface
             return $this;
         }
 
-        \PEAR2\Pyrus\Main::$downloadClass = __NAMESPACE__ . '\\Internet';
+        \Pyrus\Main::$downloadClass = __NAMESPACE__ . '\\Internet';
 
         $rest = str_replace(
             'http://' . $channel_file->name,
@@ -189,9 +189,9 @@ class Main implements \PEAR2\Templates\Savant\Turbo\CacheableInterface
     /**
      * Gets this frontend's PEAR channel
      *
-     * @return \PEAR2\Pyrus\ChannelInterface this frontend's PEAR channel.
+     * @return \Pyrus\ChannelInterface this frontend's PEAR channel.
      *
-     * @return \PEAR2\SimpleChannelFrontend\Main the current class for fluent
+     * @return \Pyrus\SimpleChannelFrontend\Main the current class for fluent
      *                                           interface.
      */
     public function getChannel()
@@ -204,7 +204,7 @@ class Main implements \PEAR2\Templates\Savant\Turbo\CacheableInterface
      *
      * @return string the path to this frontend's channel
      *
-     * @see \PEAR2\SimpleChannelFrontend\Main::setChannel()
+     * @see \Pyrus\SimpleChannelFrontend\Main::setChannel()
      */
     public function getChannelPath()
     {
@@ -301,7 +301,7 @@ class Main implements \PEAR2\Templates\Savant\Turbo\CacheableInterface
      *
      * @param string $url the base url for this frontend.
      *
-     * @return \PEAR2\SimpleChannelFrontend\Main the current class for fluent
+     * @return \Pyrus\SimpleChannelFrontend\Main the current class for fluent
      *                                           interface.
      */
     public function setURLBase($url)

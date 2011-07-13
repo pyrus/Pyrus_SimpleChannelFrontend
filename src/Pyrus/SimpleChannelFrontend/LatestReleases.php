@@ -1,6 +1,6 @@
 <?php
-namespace PEAR2\SimpleChannelFrontend;
-use PEAR2\Pyrus\Channel;
+namespace Pyrus\SimpleChannelFrontend;
+use Pyrus\Channel;
 
 class LatestReleases extends \ArrayIterator
 {
@@ -15,7 +15,7 @@ class LatestReleases extends \ArrayIterator
 
         $packages        = array();
         $channel         = $options['frontend']->getChannel();
-        $remote_packages = new \PEAR2\Pyrus\Channel\RemotePackages($channel);
+        $remote_packages = new \Pyrus\Channel\RemotePackages($channel);
         foreach ($remote_packages as $package) {
             foreach ($package as $version => $info) {
                 $packages[$package->date . ' ' . $package->time] = array(
