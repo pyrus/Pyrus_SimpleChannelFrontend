@@ -25,9 +25,9 @@ $savant->setTemplatePath(array(__DIR__ . '/templates/html'));
 $savant->addGlobal('frontend', $frontend);
 
 switch($frontend->options['format']) {
-	case 'partial':
-		\Pyrus\SimpleChannelFrontend\TemplateMapper::$output_template['PEAR2\\SimpleChannelFrontend\\Main'] = 'Main-partial';
-		break;
+    case 'partial':
+        \Pyrus\SimpleChannelFrontend\TemplateMapper::$output_template['PEAR2\\SimpleChannelFrontend\\Main'] = 'Main-partial';
+        break;
     case 'rss':
         $savant->addTemplatePath(__DIR__.'/templates/'.$frontend->options['format']);
         break;
