@@ -2,7 +2,7 @@
 /**
  * This file is used to provide extra files/packages outside package.xml
  */
-$pyrus = new \Pyrus\Package(__DIR__ . '/../PEAR2_Pyrus/package.xml');
+$pyrus = new \Pyrus\Package(__DIR__ . '/../Pyrus/package.xml');
 $pyrus->setPackagingFilter('Pyrus\PackageFile\v2Iterator\MinimalPackageFilter');
 
 $extrafiles = array(

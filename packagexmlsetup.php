@@ -15,7 +15,7 @@ $compatible->dependencies['required']->package['pear2.php.net/PEAR2_MultiErrors'
 $compatible->dependencies['required']->package['pear2.php.net/PEAR2_HTTP_Request']->save();
 */
 $package->dependencies['required']->php = '5.3.2';
-$package->dependencies['required']->package['pear2.php.net/PEAR2_Pyrus']->save();
+$package->dependencies['required']->package['pyrus.net/Pyrus']->save();
 $package->dependencies['required']->package['pear2.php.net/PEAR2_Templates_Savant']->save();
 $package->dependencies['required']->package['pear2.php.net/PEAR2_Templates_Savant_Turbo']->save();
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package version="2.1" xmlns="http://pear.php.net/dtd/package-2.1" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.1     http://pear.php.net/dtd/package-2.1.xsd">
  <name>Pyrus_SimpleChannelFrontend</name>
- <channel>pear2.php.net</channel>
+ <channel>pyrus.net</channel>
  <summary>A simple PEAR channel frontend that does not require a database.
 </summary>
  <description>
@@ -21,7 +21,7 @@ channel server as `index.php`, and add an `.htaccess` file with the following:
 
 For a more customized interface, you can create a `config.inc.php` file, or
 install the package and use the files in the `www_dir` as a starting point for
-a fully customized PEAR channel. The pear2.php.net uses this method for a
+a fully customized PEAR channel. The pear2.php.net uses this method for a 
 custom frontend.
 
 Pyrus_SimpleChannelFrontend can also be used as a viewer for remote PEAR
@@ -33,10 +33,10 @@ channels. See the `config.sample.php` file for an example of how to do this.
   <email>saltybeagle@php.net</email>
   <active>yes</active>
  </lead>
- <date>2011-05-09</date>
- <time>14:37:38</time>
+ <date>2012-07-20</date>
+ <time>14:48:56</time>
  <version>
-  <release>0.2.0</release>
+  <release>0.3.0</release>
   <api>0.2.0</api>
  </version>
  <stability>
@@ -44,30 +44,39 @@ channels. See the `config.sample.php` file for an example of how to do this.
   <api>alpha</api>
  </stability>
  <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
- <notes>Features and BugFixes:
+ <notes>So glad to announce this release! Many features built for pear2.php.net were
+backported so all PEAR channels can benefit. In particular, speed improvements,
+release file browsing, and better error handling.
 
- - Change pear2 namespace to PEAR2 [saltybeagle]
- - Add release file browser [saltybeagle|gauthierm]
- - Add category page [gauthierm]
- - Add view for latest releases, ordered by date [saltybeagle]
- - Support pagination for releases and packages [saltybeagle]
- - Add package search support [saltybeagle]
- - Reduce number of static properties and methods [gauthierm]
- - Split initialization into its own method outside of construct [gauthierm]
- - Various cleanup [gauthierm]
- - Add router for clean URLs, backported from PEAR2Web [saltybeagle]
- - Add release file browsing support, backported from PEAR2 [saltybeagle|gauthierm]
- - Support using the frontend as a viewer for remote channels [saltybeagle]
+As usual you can grab the new [SCS .phar](http://pear2.php.net/get/PEAR2_SimpleChannelServer-0.3.0.phar),
+drop it in your PEAR channel's document root as `index.php` and you're off to
+the races.
 
+You can also create a `config.inc.php` file for browsing a remote channel.
+
+
+See the details for more info!
+
+Sweet Sexy Additions:
+
+* Release file browsing support backported from pear2.php.net
+* SimpleChannelFrontend can now be used as a viewer for remote PEAR channels
+* Output caching support for speeding up channels
+* New &quot;partial&quot; output format for AJAX, XHR support
+* Pretty error pages, and better error handling
+
+Bugfixes:
+
+* Remove reference to missing JS file
 
 PEAR2_SimpleChannelFrontend API release notes for version 0.2.0:
 
-Most of the static methods have been removed. See the sample config file for
+Most of the static methods have been removed. See the sample config file for 
 instructions on how to set up your local channel.</notes>
  <contents>
   <dir name="/">
    <dir name="src" baseinstalldir="/">
-    <dir name="PEAR2">
+    <dir name="Pyrus">
      <dir name="SimpleChannelFrontend">
       <dir name="ReleaseFileBrowser">
        <file role="php" name="FilteredIterator.php"/>
@@ -113,6 +122,7 @@ instructions on how to set up your local channel.</notes>
       <file role="www" name="Category.tpl.php"/>
       <file role="www" name="InstallInstructions.tpl.php"/>
       <file role="www" name="LatestReleases.tpl.php"/>
+      <file role="www" name="Main-partial.tpl.php"/>
       <file role="www" name="Main.tpl.php"/>
       <file role="www" name="News.tpl.php"/>
       <file role="www" name="Package.tpl.php"/>
@@ -150,6 +160,14 @@ instructions on how to set up your local channel.</notes>
    <package>
     <name>PEAR2_Templates_Savant</name>
     <channel>pear2.php.net</channel>
+   </package>
+   <package>
+    <name>PEAR2_Templates_Savant_Turbo</name>
+    <channel>pear2.php.net</channel>
+   </package>
+   <package>
+    <name>Pyrus</name>
+    <channel>pyrus.net</channel>
    </package>
   </required>
  </dependencies>
