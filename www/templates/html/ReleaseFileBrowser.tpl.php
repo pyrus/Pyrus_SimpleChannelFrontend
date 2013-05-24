@@ -107,7 +107,7 @@ if (isset($context->file)) {
         $count++;
         $class = ($count % 2 === 0) ? 'even' : 'odd';
         $line = str_replace(' ', '&nbsp;', $line);
-        echo '<div class=' . $class . '>' . $count . '</div>';
+        echo '<div class="' . $class . '">' . $count . '</div>';
     }
     echo '</div>';
 
@@ -128,7 +128,7 @@ if (isset($context->file)) {
     echo '</pre>';
 
     echo '<div class="file-end">EOF</div>';
-    echo '<script>hljs.initHighlightingOnLoad();</script>';
+    echo '<script type="text/javascript">hljs.initHighlightingOnLoad();</script>';
     echo '</div>';
 } else {
     echo '<div class="file-info">';
